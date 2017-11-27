@@ -1,0 +1,14 @@
+
+          --- [[ Links ]] ---
+Article on the timeline of what you should learn in react in chronological order
+https://daveceddia.com/timeline-for-learning-react/
+
+An article on project structure
+https://daveceddia.com/react-project-structure/
+
+A really good youtube video
+https://www.youtube.com/watch?v=7ojad6QYuqI
+
+          --- [[ Notes ]] ---
+
+- React uses an object to keep track of the internal component state
