@@ -9,6 +9,9 @@ https://daveceddia.com/react-project-structure/
 A really good youtube video
 https://www.youtube.com/watch?v=7ojad6QYuqI
 
+Fullstack app guide
+https://thinkster.io/tutorials/fullstack
+
           --- [[ Notes ]] ---
 
 - React uses an object to keep track of the internal component state

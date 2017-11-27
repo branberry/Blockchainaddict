@@ -104,7 +104,11 @@ class TodoInput extends Component {
         todoPriority: 'Lowest'
       };
     }
-
+    /*
+      In this render function, we are creating the form to input the user information for todos.
+      The todos will be handled when the onSubmit event is registered by calling the function handleSubmit which
+      has not been created yet.
+    */
     render(){
       return(
         <div>
