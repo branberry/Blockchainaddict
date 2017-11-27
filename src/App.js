@@ -73,7 +73,7 @@ class App extends Component {
         <ul className = "list_group">
           {this.state.todos.map((todo, index) =>
             <li className="list-group-item" key={index}>
-              <h4 className="list-group-item-heading">{todo.todoTitle}  <small><span className="label label-info">{todo.todoPriority}</span></small></h4>
+              <h4 className="list-group-item-heading">{todo.todoTitle}<small><span className="label label-info">{todo.todoPriority}</span></small></h4>
               <p><span className="glyphicon glyphicon-user"> {todo.todoResponsible}</span></p>
 
               <p>{todo.todoDescription}</p>
@@ -86,7 +86,15 @@ class App extends Component {
     );
   }
 }
+class TodoInput extends Component {
+    constructor(props){
+      super(props);
 
+      this.state = {
+        
+      };
+    }
+}
 export default App;
 /*
  ---- Code for the original display ----
