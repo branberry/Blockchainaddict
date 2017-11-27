@@ -86,14 +86,37 @@ class App extends Component {
     );
   }
 }
+
+/*
+  This class will handle the information the user inputs.
+  this.state will take in the values we want to modify in each todo object.
+*/
 class TodoInput extends Component {
     constructor(props){
       super(props);
-
+      /*
+        We want to take all values from each todo object so we can manipulate each one
+      */
       this.state = {
-        
+        todoTitle: '',
+        todoResponsible: '',
+        todoDescription: '',
+        todoPriority: 'Lowest'
       };
     }
+
+    render(){
+      return(
+        <div>
+          <h4>Add New Element</h4>
+          <form className="form-horizontal" onSubmit={this.handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
+            </div>
+          </form>
+        </div>
+      );
+  }
 }
 export default App;
 /*
