@@ -41,6 +41,22 @@ class App extends Component {
       todos
     };
   }
+  /*
+    -- This is the function that is being called when the delete button is clicked.  This is acting as a event handler for the even onClick for button.
+    -- It takes index in as a parameter and index is used to pick out the index that is trying to remove
+
+    Documentation on filter:
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+  */
+  handleRemoveTodo(index) {
+    this.setState({
+      // the function creates a new array and takes in a function as an argument.  The value i is the index it is currently at.
+      todos: this.state.todos.filter(function(e, i) {
+        // compares the index and returns only when the statement is true.  When true, it returns the index since those are not the ones we are trying to remove.  It does NOT remove the index that equals the one we want to remove
+        return i !== index;
+      })
+    })
+  }
   render() {
     return (
       /*
@@ -50,6 +66,7 @@ class App extends Component {
         -- This.state.todos.map() takes in an arrow function with the todo object and the index of that object as parameters for the function.
         -- The key inside the li tag is {index} which refers to the object's index
         -- The h4 tag uses list-group-item-heading as the style and inside of the h4 tag, the {todo.todoTitle} is using the object in the todo array and then acessing the value associated with the todoTitle key
+        -- The button tag contains the an event handler attribute called onClick which has the method named this.handleRemoveTodo.bind(this, index) to make this context available as the index
       */
       <div className="container">
         <h4>Todo Count: <span className="badge">{this.state.todos.length}</span> </h4>
@@ -60,7 +77,7 @@ class App extends Component {
               <p><span className="glyphicon glyphicon-user"> {todo.todoResponsible}</span></p>
 
               <p>{todo.todoDescription}</p>
-              <button className="btn btn-danger btn-sm"><span className="glyphicon glyphicon-trash"> Delete</span></button>
+              <button className="btn btn-danger btn-sm"><span className="glyphicon glyphicon-trash" onClick={this.handleRemoveTodo.bind(this, index)}> Delete</span></button>
             </li>
           )}
         </ul>
