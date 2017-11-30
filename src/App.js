@@ -104,6 +104,10 @@ class TodoInput extends Component {
         todoPriority: 'Lowest'
       };
     }
+
+    handleSubmit() {
+
+    }
     /*
       In this render function, we are creating the form to input the user information for todos.
       The todos will be handled when the onSubmit event is registered by calling the function handleSubmit which
@@ -115,7 +119,32 @@ class TodoInput extends Component {
           <h4>Add New Element</h4>
           <form className="form-horizontal" onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label htmlFor="inputTodoTitle" className="col-sm-2 control-label"></label>
+              <label htmlFor="inputTodoTitle" className="col-sm-2 control-label">Goal Title</label>
+              <div className="col-sm-10">
+                <input
+                       name="todoTitle"
+                       type="text"
+                       className="form-control"
+                       id="inputTodoTitle"
+                       value={this.state.todoTitle}
+                       onChange={this.handleInputChange}
+                       placeholder="Title"
+                     />
+
+              </div>
+              <label htmlFor="inputTodoTitle" className="col-sm-2 control-label">Goal Responsible</label>
+              <div className="col-sm-10">
+                <input
+                       name="todoTitle"
+                       type="text"
+                       className="form-control"
+                       id="inputTodoTitle"
+                       value={this.state.todoResponsible}
+                       onChange={this.handleInputChange}
+                       placeholder="Title"
+                     />
+
+              </div>
             </div>
           </form>
         </div>
