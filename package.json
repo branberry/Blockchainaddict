@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dazzle": "^1.0.4",
     "react": "^16.1.1",
+    "react-dazzle": "^1.2.7",
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17"
   },

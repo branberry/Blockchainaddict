@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Dashboard from 'react-dazzle';
 import './App.css';
+import { Userboard } from './components/Userboard.js';
+//
 /*
   An array with hardcoded todo values which are objects.
 */
@@ -10,12 +12,13 @@ class App extends Component {
     return(
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Life Artificer</h1>
-          <h2 className="App-subtitle">Design the life you want to live</h2><br/>
+          <h2 className="App-subtitle">Design the life you want to live</h2>
         </header>
 
+        <Userboard/>
       </div>
+
     );
   }
 }
