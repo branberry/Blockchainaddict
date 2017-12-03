@@ -34,22 +34,6 @@ export class SlideMenu extends Component {
         <MenuButton handleMouseDown={this.handleMouseDown}/>
         <Menu handleMouseDown={this.handleMouseDown}
           menuVisibility={this.state.visible}/>
-        <div>
-          <ul>
-            <li>
-              My Profile
-            </li>
-            <li>
-              Goals
-            </li>
-            <li>
-              Settings
-            </li>
-            <li>
-              Report Bug
-            </li>
-          </ul>
-        </div>
       </div>
     );
   }
