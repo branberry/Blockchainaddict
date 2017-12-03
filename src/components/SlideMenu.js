@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { MenuButton } from './MenuButton.js';
+import { Menu } from './Menu.js';
 import '../styles/SlideMenu.css';
 
 export class SlideMenu extends Component {
@@ -29,6 +31,9 @@ export class SlideMenu extends Component {
   render() {
     return (
       <div className="container">
+        <MenuButton handleMouseDown={this.handleMouseDown}/>
+        <Menu handleMouseDown={this.handleMouseDown}
+          menuVisibility={this.state.visible}/>
         <div>
           <ul>
             <li>
