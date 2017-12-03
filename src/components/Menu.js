@@ -9,7 +9,7 @@ export class Menu extends Component {
       visibility = "show";
     }
     return(
-      <div id="flyoutMenu"
+      <div  id="flyoutMenu"
             onMouseDown={this.props.handleMouseDown}
             className={visibility}>
          <h2><a href="#">Home</a></h2>
