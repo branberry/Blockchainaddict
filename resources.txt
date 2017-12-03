@@ -12,6 +12,9 @@ https://www.youtube.com/watch?v=7ojad6QYuqI
 Fullstack app guide
 https://thinkster.io/tutorials/fullstack
 
+Additional readme information
+https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc
+
           --- [[ Notes ]] ---
 
 - React uses an object to keep track of the internal component state
