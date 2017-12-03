@@ -15,6 +15,9 @@ https://thinkster.io/tutorials/fullstack
 Additional readme information
 https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc
 
+Run this for styling with sass
+npm run watch-css
+
           --- [[ Notes ]] ---
 
 - React uses an object to keep track of the internal component state

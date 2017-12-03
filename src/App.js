@@ -16,8 +16,9 @@ class App extends Component {
           <h1 className="App-title">Life Artificer</h1>
           <h2 className="App-subtitle">Design the life you want to live</h2>
         </header>
-        <Userboard/>
         <MenuButton/>
+        <Userboard/>
+
         <SlideMenu/>
       </div>
 
