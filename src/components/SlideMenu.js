@@ -4,8 +4,9 @@ import '../styles/SlideMenu.css';
 export class SlideMenu extends Component {
 
   constructor(props, context) {
+    super(props,context);
     this.state = {
-      visible: false;
+      visible: false
     }
 
     this.toggleMenu = this.toggleMenu.bind(this);
@@ -21,7 +22,7 @@ export class SlideMenu extends Component {
   toggleMenu() {
     this.setState(
       {
-        visible: !this.state.visible;
+        visible: !this.state.visible
       }
     );
   }
