@@ -4,17 +4,21 @@
   "private": true,
   "dependencies": {
     "dazzle": "^1.0.4",
+    "node-sass-chokidar": "^0.0.3",
     "react": "^16.1.1",
     "react-dazzle": "^1.2.7",
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "sass": "^1.0.0-beta.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/styles -o src/styles",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles -o src/styles --watch --recursive"
   },
   "devDependencies": {
     "electron": "1.7.9"

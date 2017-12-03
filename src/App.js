@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Dashboard from 'react-dazzle';
-import './App.css';
 import { Userboard } from './components/Userboard.js';
+import './styles/App.css';
 //
 /*
   An array with hardcoded todo values which are objects.
