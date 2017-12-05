@@ -1,0 +1,19 @@
+.roundButton {
+  background-color: #333333;
+  margin-bottom: 20px;
+  width: auto;
+  height: auto;
+  border: 10px solid #666666;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0, 1.26, 0.8, 1.28);
+  color: white; }
+
+.roundButton:hover {
+  background-color: #666666;
+  cursor: pointer;
+  border-color: #333333;
+  transform: scale(1.2, 1.2); }
+
+.roundButton:active {
+  border-color: #000000;
+  background-color: #AAAAAA; }
