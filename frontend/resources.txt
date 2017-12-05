@@ -15,6 +15,9 @@ https://thinkster.io/tutorials/fullstack
 Additional readme information
 https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc
 
+great youtube video on Django and React
+https://www.youtube.com/watch?v=kxzg_QXrV_k
+
 Run this for styling with sass
 npm run watch-css
 
