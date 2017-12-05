@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import { SlideMenu } from './components/SlideMenu.js';
-import {MenuButton} from './components/MenuButton.js'
+import { MenuButton } from './components/MenuButton.js'
 import './styles/App.css';
 //
 /*

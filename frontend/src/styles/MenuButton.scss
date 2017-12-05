@@ -1,22 +1,25 @@
+$button-border: #666666;
+
 .roundButton {
-  background-color: #96D9FF;
+  background-color: #333333;
   margin-bottom: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 10px solid #0065A6;
+  width: auto;
+  height: auto;
+  border: 10px solid $button-border;
   outline: none;
   transition: all .2s cubic-bezier(0,1.26,.8,1.28);
+  color: white;
+  position
 }
 
 .roundButton:hover {
-  background-color: #96D9FF;
+  background-color: #666666;
   cursor: pointer;
-  border-color: #003557;
+  border-color: #333333;
   transform: scale(1.2,1.2);
 }
 
 .roundButton:active {
-  border-color: #003557;
-  background-color: #FAF;
+  border-color: #000000;
+  background-color: #AAAAAA;
 }
