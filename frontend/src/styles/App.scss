@@ -1,5 +1,5 @@
 $headerColor: #333;
-
+$grey: #AAAAAA;
 .App {
   text-align: center;
   background-color: $headerColor;
@@ -30,6 +30,13 @@ $headerColor: #333;
 
 .App-body {
 
+}
+
+.line-separator {
+    height: 1px;
+    background: $grey;
+    border-bottom: 1px solid $grey;
+    margin: 10px;
 }
 
 h1 {

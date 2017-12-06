@@ -11,7 +11,7 @@
 .roundButton:hover {
   background-color: #666666;
   cursor: pointer;
-  border-color: #333333;
+  border-color: #FFFFFF;
   transform: scale(1.2, 1.2); }
 
 .roundButton:active {

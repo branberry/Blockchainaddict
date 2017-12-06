@@ -22,6 +22,12 @@
 .App-intro {
   font-size: large; }
 
+.line-separator {
+  height: 1px;
+  background: #AAAAAA;
+  border-bottom: 1px solid #AAAAAA;
+  margin: 10px; }
+
 h1 {
   font-family: monospace; }
 
