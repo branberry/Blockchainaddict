@@ -1,5 +1,12 @@
 $bordercolor: #AAAAAA;
+$stdfont: sans-serif;
 
 .goal-submit {
   color: black;
+  font-family: $stdfont;
+}
+
+.goal-label {
+  color: white;
+  font-family: $stdfont;
 }

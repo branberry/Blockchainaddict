@@ -1,2 +1,7 @@
 .goal-submit {
-  color: black; }
+  color: black;
+  font-family: sans-serif; }
+
+.goal-label {
+  color: white;
+  font-family: sans-serif; }
