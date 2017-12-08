@@ -17,7 +17,7 @@ class App extends Component {
           <h2 className="App-subtitle">Design the life you want to live</h2>
         </header>
         <div className="line-separator"></div>
-        <SlideMenu/>
+      &nbsp;&nbsp;  <SlideMenu/>
         <Userboard/>
 
       </div>

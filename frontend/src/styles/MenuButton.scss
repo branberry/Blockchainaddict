@@ -7,9 +7,9 @@ $button-border: #666666;
   height: auto;
   border: 10px solid $button-border;
   outline: none;
-  transition: all .2s cubic-bezier(0,1.26,.8,1.28);
+  transition: all  .6s cubic-bezier(0,1.26,.8,1.28);
   color: white;
-  
+
 }
 
 .roundButton:hover {

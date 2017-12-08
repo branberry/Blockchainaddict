@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   text-align: right;
-  transition: transform .3s
+  transition: transform .65s
     cubic-bezier(0,.52,0,1);
     overflow: scroll;
     z-index: 1000;
@@ -28,5 +28,5 @@
 }
 
 #flyoutMenu h2 a:hover{
-  text-decoration: underline;
+  text-transform: full-width;
 }
