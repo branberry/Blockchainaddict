@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "bulma": "^0.6.1",
     "chart.js": "^2.7.1",
     "dazzle": "^1.0.4",
     "deeplearn": "^0.3.13",
     "node-sass-chokidar": "^0.0.3",
     "react": "^16.2.0",
+    "react-burger-menu": "^2.1.11",
     "react-chartjs-2": "^2.6.4",
     "react-dazzle": "^1.2.7",
     "react-dom": "^16.2.0",
