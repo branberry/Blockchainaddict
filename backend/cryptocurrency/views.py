@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world.  You're in the goals index.")
+    return HttpResponse("Hello, world.  You're at the cryptocurrency index.")
