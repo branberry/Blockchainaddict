@@ -4,12 +4,15 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
     host : 'DESKTOP-J8I4H9P',
     user : 'wowbob396',
-    password : '*******',
+    password : '',
     database : 'lifeartificer'
 });
 
 connection.connect();
-connection.query
+connection.query('INSERT INTO ada_data VALUES (.5032,\'2017-12-22\')',(error,results,fields) => {
+    if (error) throw error;
+    console.log(results);
+});
 connection.query('SELECT * FROM ada_data', (error,results,fields) => {
     if (error) throw error;
     console.log(results);
