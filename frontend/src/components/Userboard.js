@@ -63,8 +63,8 @@ export class Userboard extends Component {
          <div>
            <Bar
              data={this.state.ChartData}
-             width={100}
-             height={200}
+             width={50}
+             height={300}
              options={{
                maintainAspectRatio: false,
                title: {
