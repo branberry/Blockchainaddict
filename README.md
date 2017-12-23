@@ -12,4 +12,4 @@ The backend is using the Django python framework, but as of now needs work befor
 
 **First** I want to create a way for a user to input a goal, and then set a date for when the want to complete it
 **Second** Figure out a way to load a user with their goals in a database
-**Third** Figure out if I should just use SQLite or maybe use something else with Django
+**Third** Currently configured the backend with expressjs and currently have a mySQL database hooked up with it.  I want to be able to store my cryptocurrency data on the data by hooking up the frontend with the backend
