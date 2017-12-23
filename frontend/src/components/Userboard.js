@@ -56,14 +56,11 @@ export class Userboard extends Component {
     })
   }
   
-  
   render() {
     return (
       <div className="dashboard">
         <h1> Your Dashboard </h1>
          <div>
-        
-           <Goals/>
            <Bar
              data={this.state.ChartData}
              width={100}

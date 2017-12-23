@@ -14,7 +14,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Life Artificer</h1>
-          <h2 className="App-subtitle">Design the life you want to live</h2>
         </header>
         <div className="line-separator"></div>
         <Sidebar/>
