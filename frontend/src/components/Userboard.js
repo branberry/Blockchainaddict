@@ -30,7 +30,7 @@ export class Userboard extends Component {
       // let now_utc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
       // let testObj = {};
 
-  // this is grabbing the dat for ada from the cryptocompare rest API
+  // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
@@ -67,9 +67,9 @@ export class Userboard extends Component {
            <Bar
              data={this.state.ChartData}
              width={100}
-             height={50}
+             height={200}
              options={{
-               maintainAspectRatio: true,
+               maintainAspectRatio: false,
                title: {
                 display: true,
                }
