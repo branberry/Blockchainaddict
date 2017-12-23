@@ -9,15 +9,14 @@ export class Userboard extends Component {
     super(props);
     this.state = {
       ChartData: {
-        labels: ['Cardano', 'Bitcoin','Power Ledger','Tron'],
+        labels: ['Cardano','Power Ledger','Tron'],
         datasets: [
           {
-            label: 'Price in USD',
-            data:[.50,.23,.42,.31],
+            label: 'Price',
+            data:[],
             backgroundColor: [
               'rgba(255,99,132,0.6)',
               'rgba(25,99,132,0.6)',
-              'rgba(255,199,132,0.6)',
               'rgba(255,99,12,0.6)'
             ]
           }
@@ -26,7 +25,7 @@ export class Userboard extends Component {
 
     };
   }
-       // using the current time stamp as an index fopr the object which contains the json object from the request as a value
+      // using the current time stamp as an index fopr the object which contains the json object from the request as a value
       // let now = new Date(); 
       // let now_utc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
       // let testObj = {};
@@ -36,9 +35,28 @@ export class Userboard extends Component {
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
     .then(d => {
- 
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[0] = d.USD;
+      this.setState({ChartData})
+    })
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=POWR&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[1] = d.USD;
+      this.setState({ChartData})
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=TRX&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[2] = d.USD;
+      this.setState({ChartData})
     })
   }
+  
+  
   render() {
     return (
       <div className="dashboard">
