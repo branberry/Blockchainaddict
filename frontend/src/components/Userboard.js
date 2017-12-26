@@ -11,16 +11,17 @@ export class Userboard extends Component {
     this.state = {
   
       ChartData: {
-        labels: ['Cardano','Power Ledger','Tron'],
+        labels: ['Cardano','Power Ledger','Tron','Lisk', 'Bitcoin'],
         datasets: [
           {
-            title: 'Your Portfolio',
             label: 'Price (USD)',
             data:[],
             backgroundColor: [
               'rgba(255,99,132,0.6)',
               'rgba(25,99,132,0.6)',
-              'rgba(255,99,12,0.6)'
+              'rgba(255,99,12,0.6)',
+              'rgba(255,255,12,0.6)',
+              'rgba(10,255,255,0.6)'
             ]
           }
         ]
@@ -42,14 +43,14 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[0] = d.USD;
+      ChartData.datasets[0].data[0] = d.USD * 316.682;
       this.setState({ChartData})
     })
     fetch('https://min-api.cryptocompare.com/data/price?fsym=POWR&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[1] = d.USD;
+      ChartData.datasets[0].data[1] = d.USD * 144.855;
       this.setState({ChartData})
     })
 
@@ -57,7 +58,23 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[2] = d.USD;
+      ChartData.datasets[0].data[2] = d.USD * 1641.36;
+      this.setState({ChartData})
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=LSK&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[3] = d.USD*2.00087;
+      this.setState({ChartData})
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[4] = d.USD*0.0227842;
       this.setState({ChartData})
     })
   }
@@ -67,6 +84,7 @@ export class Userboard extends Component {
       <div className="dashboard">
         <h1> Your Dashboard </h1>
          <div className="container">
+
            <Bar
              data={this.state.ChartData}
              height={500}
@@ -75,6 +93,7 @@ export class Userboard extends Component {
              options={{
               maintainAspectRatio: false,
                title: {
+                text: 'Your Portfolio',
                 display: true,
                }
 
