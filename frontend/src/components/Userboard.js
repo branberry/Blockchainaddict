@@ -3,6 +3,7 @@ import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import { Sidebar } from './Sidebar.js';
 import '../styles/UserBoard.css';
+import { MyCalendar } from './MyCalendar.js';
 
 export class Userboard extends Component {
   
@@ -81,12 +82,13 @@ export class Userboard extends Component {
   
   render() {
     return (
-      <div className="dashboard">
+      <div className="container">
         <h1> Your Dashboard </h1>
-         <div className="container">
-
+         <div className="row">
+           <div className="col-lg-4">
            <Bar
              data={this.state.ChartData}
+             width={150}
              height={500}
              onChange={this.state.ChartData}
              redraw={true}
@@ -96,9 +98,12 @@ export class Userboard extends Component {
                 text: 'Your Portfolio',
                 display: true,
                }
-
+              
              }} />
-
+             </div>
+             <div className="col-lg-4">
+                <MyCalendar/>
+             </div>
         </div>
       </div>
     );
