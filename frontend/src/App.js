@@ -3,6 +3,7 @@ import { Userboard } from './components/Userboard.js';
 import { MenuButton } from './components/MenuButton.js';
 import './styles/App.css';
 import { Sidebar } from './components/Sidebar.js';
+import Menu, {SubMenu, MenuItem} from 'rc-menu';
 //
 /*
   An array with hardcoded todo values which are objects.
@@ -16,7 +17,11 @@ class App extends Component {
           <h1 className="App-title">Life Artificer</h1>
         </header>
         <div className="line-separator"></div>
-        <Sidebar/>
+            
+        <Menu>
+          <MenuItem>Home</MenuItem>
+          <MenuItem>Stuff</MenuItem>
+        </Menu>
         <Userboard/>
 
 

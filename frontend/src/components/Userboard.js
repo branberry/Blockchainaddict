@@ -5,14 +5,17 @@ import { Sidebar } from './Sidebar.js';
 import '../styles/UserBoard.css';
 
 export class Userboard extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
+  
       ChartData: {
         labels: ['Cardano','Power Ledger','Tron'],
         datasets: [
           {
-            label: 'Price',
+            title: 'Your Portfolio',
+            label: 'Price (USD)',
             data:[],
             backgroundColor: [
               'rgba(255,99,132,0.6)',
@@ -22,8 +25,10 @@ export class Userboard extends Component {
           }
         ]
       }
-
     };
+  }
+  changeHandler(value) {
+    this.ChartData.update();
   }
       // using the current time stamp as an index fopr the object which contains the json object from the request as a value
       // let now = new Date(); 
@@ -32,6 +37,7 @@ export class Userboard extends Component {
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
+
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
     .then(d => {
@@ -60,13 +66,14 @@ export class Userboard extends Component {
     return (
       <div className="dashboard">
         <h1> Your Dashboard </h1>
-         <div>
+         <div className="container">
            <Bar
              data={this.state.ChartData}
-             width={50}
-             height={300}
+             height={500}
+             onChange={this.state.ChartData}
+             redraw={true}
              options={{
-               maintainAspectRatio: false,
+              maintainAspectRatio: false,
                title: {
                 display: true,
                }

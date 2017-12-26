@@ -9,6 +9,7 @@
     "dazzle": "^1.0.4",
     "deeplearn": "^0.3.13",
     "node-sass-chokidar": "^0.0.3",
+    "rc-menu": "^6.2.4",
     "react": "^16.2.0",
     "react-burger-menu": "^2.1.11",
     "react-chartjs-2": "^2.6.4",
