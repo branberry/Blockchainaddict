@@ -5,7 +5,7 @@ const mysql = require('mysql');
 const connection = mysql.createConnection({
     host : 'DESKTOP-J8I4H9P',
     user : 'wowbob396',
-    password : 'worldwar95',
+    password : '',
     database : 'lifeartificer'
 });
 
@@ -18,4 +18,4 @@ app.get('/getadaprice',(req,res) => connection.query('SELECT * FROM ada_data', (
     if (error) throw error;
     console.log(results);
 }));
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(3001, () => console.log('Example app listening on port 3001!'));
