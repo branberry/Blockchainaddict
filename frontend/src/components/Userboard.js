@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
-import { Sidebar } from './Sidebar.js';
 import '../styles/UserBoard.css';
 import { MyCalendar } from './MyCalendar.js';
 

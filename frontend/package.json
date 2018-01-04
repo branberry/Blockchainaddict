@@ -9,7 +9,6 @@
     "dazzle": "^1.0.4",
     "deeplearn": "^0.3.13",
     "node-sass-chokidar": "^0.0.3",
-    "rc-menu": "^6.2.4",
     "react": "^16.2.0",
     "react-burger-menu": "^2.1.11",
     "react-calendar": "^2.8.0",
@@ -18,6 +17,7 @@
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-scripts": "1.0.17",
+    "react-sidebar": "^2.3.2",
     "redux": "^3.7.2",
     "sass": "^1.0.0-beta.3"
   },

@@ -2,27 +2,42 @@ import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import { MenuButton } from './components/MenuButton.js';
 import './styles/App.css';
-import { Sidebar } from './components/Sidebar.js';
-import Menu, {SubMenu, MenuItem} from 'rc-menu';
+import Sidebar from 'react-sidebar';
+
 //
 /*
   An array with hardcoded todo values which are objects.
 */
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      sidebarOpen: false
+    }
+
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  onSetSidebarOpen = (open) => {
+    this.setState({sidebarOpen: open});
+  }
   render() {
+    var sidebarContent = <b> Sidebar Content </b>;
+
     return(
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Life Artificer</h1>
         </header>
         <div className="line-separator"></div>
-            
-        <Menu>
-          <MenuItem>Home</MenuItem>
-          <MenuItem>Stuff</MenuItem>
-        </Menu>
-        <Userboard/>
+      <Userboard/>
+      <Sidebar sidebar={sidebarContent}
+      open={this.state.sidebarOpen}
+      onSetOpen={this.onSetSidebarOpen}>
+      <b>Main content</b>
+      </Sidebar>
 
 
       </div>
