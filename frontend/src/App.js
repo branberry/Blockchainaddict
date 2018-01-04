@@ -8,23 +8,45 @@ import Sidebar from 'react-sidebar';
 /*
   An array with hardcoded todo values which are objects.
 */
+const mql = window.matchMedia(`(min-width: 800px)`);
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      sidebarOpen: false
+      mql: mql,
+      docked: props.docked,
+      open: props.open
     }
 
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
 
-  onSetSidebarOpen = (open) => {
+  onSetSidebarOpen(open) {
     this.setState({sidebarOpen: open});
+  }
+
+  componentWillMount() {
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({mql: mql, sidebarDocked: mql.matches});
+  }
+
+  componentWillUnmount() {
+    this.state.mql.removeListener(this.mediaQueryChanged);
+  }
+
+  mediaQueryChanged() {
+    this.setState({sidebarDocked: this.state.mql.matches});
   }
   render() {
     var sidebarContent = <b> Sidebar Content </b>;
+    var sidebarProps = {
+      sidebar: this.state.sidebarOpen,
+      docked: this.state.sidebarDocked,
+      onSetOpen: this.onSetSidebarOpen
+    };
 
     return(
       <div className="App">
@@ -32,11 +54,13 @@ class App extends Component {
           <h1 className="App-title">Life Artificer</h1>
         </header>
         <div className="line-separator"></div>
+      <button className="btn btn-default" id="menu-button" onClick={this.handleClick}> Open Menu</button>
       <Userboard/>
       <Sidebar sidebar={sidebarContent}
-      open={this.state.sidebarOpen}
-      onSetOpen={this.onSetSidebarOpen}>
-      <b>Main content</b>
+               open={this.state.sidebarOpen}
+               docked={this.state.sidebarDocked}
+               onSetOpen={this.onSetSidebarOpen}>
+        <b>Main content</b>
       </Sidebar>
 
 
