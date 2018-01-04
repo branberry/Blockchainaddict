@@ -54,7 +54,6 @@ class App extends Component {
           <h1 className="App-title">Life Artificer</h1>
         </header>
         <div className="line-separator"></div>
-      <button className="btn btn-default" id="menu-button" onClick={this.handleClick}> Open Menu</button>
       <Userboard/>
       <Sidebar sidebar={sidebarContent}
                open={this.state.sidebarOpen}
