@@ -1,6 +1,7 @@
 $stdFont: Helvetica;
+$stdColor: #AAAAAA;
 
 .dashboard {
-  color: white;
+  color:$stdColor;
   font-family: $stdFont;
 }

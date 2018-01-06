@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import '../styles/UserBoard.css';
-import { MyCalendar } from './MyCalendar.js';
 
 export class Userboard extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
-  
+      networth: 0,
       ChartData: {
-        labels: ['Cardano','Power Ledger','Tron','Lisk', 'Bitcoin'],
+        labels: ['Cardano','Power Ledger','Tron','Lisk', 'Bitcoin','Po.et'],
         datasets: [
           {
             label: 'Price (USD)',
@@ -21,7 +20,8 @@ export class Userboard extends Component {
               'rgba(25,99,132,0.6)',
               'rgba(255,99,12,0.6)',
               'rgba(255,255,12,0.6)',
-              'rgba(10,255,255,0.6)'
+              'rgba(10,255,255,0.6)',
+              'rgba(255,255,255,0.6)'
             ]
           }
         ]
@@ -30,6 +30,10 @@ export class Userboard extends Component {
   }
   changeHandler(value) {
     this.ChartData.update();
+  }
+
+  calculateNetworth(props) {
+    
   }
       // using the current time stamp as an index fopr the object which contains the json object from the request as a value
       // let now = new Date(); 
@@ -74,7 +78,14 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[4] = d.USD*0.0227842;
+      ChartData.datasets[0].data[4] = d.USD*0.0112659;
+      this.setState({ChartData})
+    })
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=POE&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      ChartData.datasets[0].data[5] = d.USD*843.156;
       this.setState({ChartData})
     })
   }
@@ -82,8 +93,9 @@ export class Userboard extends Component {
   render() {
     return (
       <div className="container">
-        <h1> Your Dashboard </h1>
+        <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
+         <h2 className="dashboard"> Your Net Worth: {this.state.networth} </h2>
            <div className="col-lg-4">
            <Bar
              data={this.state.ChartData}
@@ -101,7 +113,7 @@ export class Userboard extends Component {
              }} />
              </div>
              <div className="col-lg-4">
-                <MyCalendar/>
+             
              </div>
         </div>
       </div>
