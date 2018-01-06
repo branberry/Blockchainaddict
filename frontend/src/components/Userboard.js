@@ -56,7 +56,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[0] = d.USD * 316.682;
+      ChartData.datasets[0].data[0] = d.USD * this.state.cryptoAmount['Cardano'];
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -65,7 +65,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[1] = d.USD * 144.855;
+      ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'] ;
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Power Ledger'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -74,7 +74,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[2] = d.USD * 1641.36;
+      ChartData.datasets[0].data[2] = d.USD * this.state.cryptoAmount['Tron'];
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Tron'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -83,7 +83,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[3] = d.USD*2.00087;
+      ChartData.datasets[0].data[3] = d.USD * this.state.cryptoAmount['Lisk'];
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Lisk'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -92,7 +92,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[4] = d.USD*0.0112659;
+      ChartData.datasets[0].data[4] = d.USD * this.state.cryptoAmount['Bitcoin'];
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Bitcoin'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -101,7 +101,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      ChartData.datasets[0].data[5] = d.USD*843.156;
+      ChartData.datasets[0].data[5] = d.USD * this.state.cryptoAmount['Po.et'];
       this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Po.et'] +'e2') +'e-2');
       this.setState({ChartData})
     })
@@ -130,8 +130,17 @@ export class Userboard extends Component {
               
              }} />
              </div>
+
              <div className="col-lg-4">
-             
+                <h2 className="dashboard">Currency Values</h2>
+                <ul className="dashboard"> 
+                  <li>Cardano: ${this.state.ChartData.datasets[0].data[0]}</li>
+                  <li>Power Ledger: ${this.state.ChartData.datasets[0].data[1]}</li>
+                  <li>Tron: ${this.state.ChartData.datasets[0].data[2]}</li>
+                  <li>Lisk: ${this.state.ChartData.datasets[0].data[3]}</li>
+                  <li>Bitcoin: ${this.state.ChartData.datasets[0].data[4]}</li>
+                  <li>Po.et: ${this.state.ChartData.datasets[0].data[5]}</li>
+                </ul>
              </div>
         </div>
       </div>
