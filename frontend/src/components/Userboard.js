@@ -56,56 +56,57 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
       ChartData.datasets[0].data[0] = d.USD * this.state.cryptoAmount['Cardano'];
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
 
     fetch('https://min-api.cryptocompare.com/data/price?fsym=POWR&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Power Ledger'] +'e2') +'e-2');
       ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'] ;
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Power Ledger'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
 
     fetch('https://min-api.cryptocompare.com/data/price?fsym=TRX&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Tron'] +'e2') +'e-2');
       ChartData.datasets[0].data[2] = d.USD * this.state.cryptoAmount['Tron'];
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Tron'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
 
     fetch('https://min-api.cryptocompare.com/data/price?fsym=LSK&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Lisk'] +'e2') +'e-2');
       ChartData.datasets[0].data[3] = d.USD * this.state.cryptoAmount['Lisk'];
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Lisk'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
 
     fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Bitcoin'] +'e2') +'e-2');
       ChartData.datasets[0].data[4] = d.USD * this.state.cryptoAmount['Bitcoin'];
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Bitcoin'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
 
     fetch('https://min-api.cryptocompare.com/data/price?fsym=POE&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Po.et'] +'e2') +'e-2');
       ChartData.datasets[0].data[5] = d.USD * this.state.cryptoAmount['Po.et'];
-      this.state.networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Po.et'] +'e2') +'e-2');
-      this.setState({ChartData})
+      this.setState({ChartData,networth});
     })
-    this.state.networth = Number(Math.round(this.state.networth +'e2') +'e-2');
+    let networth = Number(Math.round(this.state.networth +'e2') +'e-2');
+    this.setState({networth});
   }
   
   render() {
