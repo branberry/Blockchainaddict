@@ -48,6 +48,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[0] = d.USD * 316.682;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD * 316.682 +'e2')+'e-2');
       this.setState({ChartData})
     })
     fetch('https://min-api.cryptocompare.com/data/price?fsym=POWR&tsyms=USD')
@@ -55,6 +56,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[1] = d.USD * 144.855;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD * 144.855 +'e2')+'e-2');
       this.setState({ChartData})
     })
 
@@ -63,6 +65,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[2] = d.USD * 1641.36;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD * 1641.36 +'e2')+'e-2');
       this.setState({ChartData})
     })
 
@@ -71,6 +74,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[3] = d.USD*2.00087;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD*2.00087 +'e2')+'e-2');
       this.setState({ChartData})
     })
 
@@ -79,6 +83,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[4] = d.USD*0.0112659;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD*0.0112659 +'e2')+'e-2');
       this.setState({ChartData})
     })
     fetch('https://min-api.cryptocompare.com/data/price?fsym=POE&tsyms=USD')
@@ -86,8 +91,10 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       ChartData.datasets[0].data[5] = d.USD*843.156;
+      this.state.networth = this.state.networth +  Number(Math.round(d.USD*843.156 +'e2')+'e-2');
       this.setState({ChartData})
     })
+    this.state.networth = Number(Math.round(this.state.networth +'e2')+'e-2');
   }
   
   render() {
@@ -95,7 +102,7 @@ export class Userboard extends Component {
       <div className="container">
         <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
-         <h2 className="dashboard"> Your Net Worth: {this.state.networth} </h2>
+         <h2 className="dashboard"> Your Net Worth: ${this.state.networth} </h2>
            <div className="col-lg-4">
            <Bar
              data={this.state.ChartData}
