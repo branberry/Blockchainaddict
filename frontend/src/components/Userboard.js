@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import { setInterval } from 'timers';
+import { createStore } from 'redux';
 import '../styles/UserBoard.css';
 
 
@@ -54,14 +55,14 @@ export class Userboard extends Component {
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
-    setInterval(()=> {
+    setInterval(() => {
       let networth = 0;
       this.setState({networth});
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
+      networth = this.state.networth +  d.USD * this.state.cryptoAmount['Cardano'];
       ChartData.datasets[0].data[0] = d.USD * this.state.cryptoAmount['Cardano'];
       this.setState({ChartData,networth});
     })
@@ -70,7 +71,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Power Ledger'] +'e2') +'e-2');
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Power Ledger'];
       ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'];
       this.setState({ChartData,networth});
     })
@@ -79,7 +80,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Tron'] +'e2') +'e-2');
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Tron'];
       ChartData.datasets[0].data[2] = d.USD * this.state.cryptoAmount['Tron'];
       this.setState({ChartData,networth});
     })
@@ -88,7 +89,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Lisk'] +'e2') +'e-2');
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Lisk'];
       ChartData.datasets[0].data[3] = d.USD * this.state.cryptoAmount['Lisk'];
       this.setState({ChartData,networth});
     })
@@ -97,7 +98,7 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Bitcoin'] +'e2') +'e-2');
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Bitcoin'];
       ChartData.datasets[0].data[4] = d.USD * this.state.cryptoAmount['Bitcoin'];
       this.setState({ChartData,networth});
     })
@@ -106,11 +107,11 @@ export class Userboard extends Component {
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Po.et'] +'e2') +'e-2');
+      let networth = this.state.networth +  d.USD * this.state.cryptoAmount['Po.et'];
       ChartData.datasets[0].data[5] = d.USD * this.state.cryptoAmount['Po.et'];
       this.setState({ChartData,networth});
     })
-    networth = Number(Math.round(this.state.networth +'e2') +'e-2');
+    networth = this.state.networth;
     this.setState({networth});
     },10000);
   }
@@ -120,7 +121,7 @@ export class Userboard extends Component {
       <div className="container">
         <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
-         <h2 className="dashboard"> Your Net Worth: ${this.state.networth} </h2>
+         <h2 className="dashboard"> Your Net Worth: ${Number(Math.round(this.state.networth +'e2') +'e-2')} </h2>
            <div className="col-lg-4">
            <Bar
              data={this.state.ChartData}
@@ -141,12 +142,12 @@ export class Userboard extends Component {
              <div className="col-lg-4">
                 <h2 className="dashboard">Currency Values</h2>
                 <ul className="dashboard"> 
-                  <li>Cardano: ${this.state.ChartData.datasets[0].data[0]}</li>
-                  <li>Power Ledger: ${this.state.ChartData.datasets[0].data[1]}</li>
-                  <li>Tron: ${this.state.ChartData.datasets[0].data[2]}</li>
-                  <li>Lisk: ${this.state.ChartData.datasets[0].data[3]}</li>
-                  <li>Bitcoin: ${this.state.ChartData.datasets[0].data[4]}</li>
-                  <li>Po.et: ${this.state.ChartData.datasets[0].data[5]}</li>
+                  <li>Cardano: ${Number(Math.round(this.state.ChartData.datasets[0].data[0] +'e2') +'e-2')}</li>
+                  <li>Power Ledger: ${Number(Math.round(this.state.ChartData.datasets[0].data[1] +'e2') +'e-2')}</li>
+                  <li>Tron: ${Number(Math.round(this.state.ChartData.datasets[0].data[2] +'e2') +'e-2')}</li>
+                  <li>Lisk: ${Number(Math.round(this.state.ChartData.datasets[0].data[3] +'e2') +'e-2')}</li>
+                  <li>Bitcoin: ${Number(Math.round(this.state.ChartData.datasets[0].data[4] +'e2') +'e-2')}</li>
+                  <li>Po.et: ${Number(Math.round(this.state.ChartData.datasets[0].data[5] +'e2') +'e-2')}</li>
                 </ul>
              </div>
         </div>
