@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Goals } from './Goals.js';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import { setInterval } from 'timers';
 import { createStore } from 'redux';
 import '../styles/UserBoard.css';
@@ -21,7 +21,7 @@ export class Userboard extends Component {
         'Bitcoin' : 0.0112659,
         'Po.et' : 843.156
       },
-
+      LineChartData : {},
       ChartData: {
         labels: ['Cardano','Power Ledger','Tron','Lisk', 'Bitcoin','Po.et'],
         datasets: [
@@ -41,9 +41,6 @@ export class Userboard extends Component {
       }
     };
   }
-  changeHandler(value) {
-    this.ChartData.update();
-  }
 
   calculateNetworth(props) {
     
@@ -55,9 +52,72 @@ export class Userboard extends Component {
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
+    let networth = 0;
+    this.setState({networth});
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      networth = this.state.networth +  d.USD * this.state.cryptoAmount['Cardano'];
+      ChartData.datasets[0].data[0] = d.USD * this.state.cryptoAmount['Cardano'];
+      this.setState({ChartData,networth});
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=POWR&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Power Ledger'];
+      ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'];
+      this.setState({ChartData,networth});
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=TRX&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Tron'];
+      ChartData.datasets[0].data[2] = d.USD * this.state.cryptoAmount['Tron'];
+      this.setState({ChartData,networth});
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=LSK&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Lisk'];
+      ChartData.datasets[0].data[3] = d.USD * this.state.cryptoAmount['Lisk'];
+      this.setState({ChartData,networth});
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth + d.USD * this.state.cryptoAmount['Bitcoin'];
+      ChartData.datasets[0].data[4] = d.USD * this.state.cryptoAmount['Bitcoin'];
+      this.setState({ChartData,networth});
+    })
+
+    fetch('https://min-api.cryptocompare.com/data/price?fsym=POE&tsyms=USD')
+    .then(d => d.json())
+    .then(d => {
+      let ChartData = Object.assign({}, this.state.ChartData);
+      let networth = this.state.networth +  d.USD * this.state.cryptoAmount['Po.et'];
+      ChartData.datasets[0].data[5] = d.USD * this.state.cryptoAmount['Po.et'];
+      this.setState({ChartData,networth});
+    })
+    networth = this.state.networth;
+    this.setState({networth});
+
+    /* 
+      This is a duplicate of the above code, but with an interval so it is updated every 10 seconds, but
+      it is also initalized above.  If you do not have the duplicate code above, the page will wait 
+      10 seconds before reloading.  There is probably a better way to do this without duplicating the code
+    */
     setInterval(() => {
-      let networth = 0;
-      this.setState({networth});
+    let networth = 0;
+    this.setState({networth});
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
     .then(d => {
@@ -117,6 +177,7 @@ export class Userboard extends Component {
   }
   
   render() {
+    console.log(Date.now());
     return (
       <div className="container">
         <h1 className="dashboard"> Your Dashboard </h1>
