@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
-import '../styles/UserBoard.css';
 import { setInterval } from 'timers';
+import '../styles/UserBoard.css';
+
 
 export class Userboard extends Component {
   
