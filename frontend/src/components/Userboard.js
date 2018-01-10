@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Goals } from './Goals.js';
 import { Bar, Line, Pie } from 'react-chartjs-2';
 import '../styles/UserBoard.css';
+import { setInterval } from 'timers';
 
 export class Userboard extends Component {
   
   constructor(props) {
     super(props);
     this.state = {
+      previousCryptoVals: {},
       networth: 0,
       cryptoAmount: {
         'Cardano' : 316.682,
@@ -51,12 +53,14 @@ export class Userboard extends Component {
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
-
+    setInterval(()=> {
+      let networth = 0;
+      this.setState({networth});
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
     .then(d => d.json())
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
-      let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
+      networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Cardano'] +'e2') +'e-2');
       ChartData.datasets[0].data[0] = d.USD * this.state.cryptoAmount['Cardano'];
       this.setState({ChartData,networth});
     })
@@ -66,7 +70,7 @@ export class Userboard extends Component {
     .then(d => {
       let ChartData = Object.assign({}, this.state.ChartData);
       let networth = this.state.networth +  Number(Math.round(d.USD * this.state.cryptoAmount['Power Ledger'] +'e2') +'e-2');
-      ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'] ;
+      ChartData.datasets[0].data[1] = d.USD * this.state.cryptoAmount['Power Ledger'];
       this.setState({ChartData,networth});
     })
 
@@ -105,8 +109,9 @@ export class Userboard extends Component {
       ChartData.datasets[0].data[5] = d.USD * this.state.cryptoAmount['Po.et'];
       this.setState({ChartData,networth});
     })
-    let networth = Number(Math.round(this.state.networth +'e2') +'e-2');
+    networth = Number(Math.round(this.state.networth +'e2') +'e-2');
     this.setState({networth});
+    },10000);
   }
   
   render() {

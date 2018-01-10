@@ -15,6 +15,7 @@
     "react-chartjs-2": "^2.6.4",
     "react-dazzle": "^1.2.7",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-scripts": "1.0.17",
     "react-sidebar": "^2.3.2",
@@ -30,6 +31,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/styles -o src/styles --watch --recursive"
   },
   "devDependencies": {
-    "electron": "1.7.9"
+    "electron": "1.7.9",
+    "redux-devtools": "^3.4.1"
   }
 }
