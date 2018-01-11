@@ -7,7 +7,6 @@ import '../styles/UserBoard.css';
 
 
 export class Userboard extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +20,32 @@ export class Userboard extends Component {
         'Bitcoin' : 0.0112659,
         'Po.et' : 843.156
       },
-      LineChartData : {},
+      LineChartData : {
+        labels : [],
+        datasets : [ 
+          {
+            label: 'Portfolio Historical Values',
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: 'rgba(75,192,192,0.4)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [1,3,6,2,4,5,1]
+          }
+        ]
+      },
       ChartData: {
         labels: ['Cardano','Power Ledger','Tron','Lisk', 'Bitcoin','Po.et'],
         datasets: [
@@ -109,12 +133,12 @@ export class Userboard extends Component {
     })
     networth = this.state.networth;
     this.setState({networth});
-
-    /* 
+     /* 
       This is a duplicate of the above code, but with an interval so it is updated every 10 seconds, but
       it is also initalized above.  If you do not have the duplicate code above, the page will wait 
       10 seconds before reloading.  There is probably a better way to do this without duplicating the code
     */
+
     setInterval(() => {
     let networth = 0;
     this.setState({networth});
@@ -173,7 +197,7 @@ export class Userboard extends Component {
     })
     networth = this.state.networth;
     this.setState({networth});
-    },10000);
+    },30000);
   }
   
   render() {
@@ -210,6 +234,17 @@ export class Userboard extends Component {
                   <li>Bitcoin: ${Number(Math.round(this.state.ChartData.datasets[0].data[4] +'e2') +'e-2')}</li>
                   <li>Po.et: ${Number(Math.round(this.state.ChartData.datasets[0].data[5] +'e2') +'e-2')}</li>
                 </ul>
+             </div>
+             <div className="col-lg-4"> 
+              <Line 
+                data={this.state.LineChartData}
+                width={150}
+                height={500}
+                redraw={true}
+                options={{
+                  maintainAspectRatio:false
+                }}
+                />
              </div>
         </div>
       </div>
