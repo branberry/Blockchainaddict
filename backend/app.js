@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
+
+const secret = require('./secret.json')
 //const blockchain = require('./Blockchain/main');
 const connection = mysql.createConnection({
     host : 'DESKTOP-J8I4H9P',
     user : 'wowbob396',
-    password : '',
+    password : secret.pass,
     database : 'lifeartificer'
 });
 
