@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import { MenuButton } from './components/MenuButton.js';
+import Sidebar from 'react-sidebar';
 import './styles/App.css';
 
 //
 /*
   An array with hardcoded todo values which are objects.
 */
+const styles = {
+  contentHeaderMenuLink: {
+    textDecoration: 'none',
+    color: 'white',
+    padding: 8,
+  },
+  content: {
+    padding: '16px',
+  },
+};
+
 const mql = window.matchMedia(`(min-width: 800px)`);
 
 class App extends Component {
@@ -14,22 +26,48 @@ class App extends Component {
     super(props);
 
     this.state = {
-
+      mql: mql,
+      docked: props.docked,
+      open: props.open
     }
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+onSetSidebarOpen = (open) => {
+    this.setState({sidebarOpen: open});
   }
 
+  componentWillMount = () => {
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({mql: mql, sidebarDocked: mql.matches});
+  }
+
+  componentWillUnmount = () => {
+    this.state.mql.removeListener(this.mediaQueryChanged);
+  }
+
+  mediaQueryChanged = () => {
+    this.setState({sidebarDocked: this.state.mql.matches});
+  }
   render() {
-    var sidebarContent = <b> Sidebar Content </b>;
-    var sidebarProps = {
+    const sidebarContent = <b> Sidebar Content </b>;
+    const sidebarProps = {
       sidebar: this.state.sidebarOpen,
       docked: this.state.sidebarDocked,
       onSetOpen: this.onSetSidebarOpen
     };
 
     return(
+
       <div className="App">
+      <Sidebar sidebar={sidebarContent}
+      open={this.state.sidebarOpen}
+      docked={this.state.sidebarDocked}
+      onSetOpen={this.onSetSidebarOpen}>
+    </Sidebar>
         <header className="App-header">
-          <h1 className="App-title">Cryptocoinfolio</h1>
+          <h1 className="App-title">Blockchain Addict</h1>
         </header>
         <div className="line-separator"></div>
       <Userboard/>
