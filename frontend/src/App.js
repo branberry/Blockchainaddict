@@ -27,12 +27,13 @@ class App extends Component {
 
     this.state = {
       mql: mql,
-      docked: props.docked,
-      open: props.open
+      docked: false,
+      open: false,
     }
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
+    this.onSetOpen = this.onSetSidebarOpen.bind(this);
   }
 onSetSidebarOpen = (open) => {
     this.setState({sidebarOpen: open});
@@ -48,8 +49,19 @@ onSetSidebarOpen = (open) => {
   }
 
   mediaQueryChanged = () => {
-    this.setState({sidebarDocked: this.state.mql.matches});
+    this.setState({
+      sidebarDocked: this.state.mql.matches,
+      docked: this.state.mql.matches,
+    });
   }
+  toggleOpen(ev) {
+    this.setState({open: !this.state.open});
+
+    if (ev) {
+      ev.preventDefault();
+    }
+  }
+  
   render() {
     const sidebarContent = <b> Sidebar Content </b>;
     const sidebarProps = {
