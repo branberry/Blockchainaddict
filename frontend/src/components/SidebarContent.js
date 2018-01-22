@@ -38,4 +38,21 @@ const SidebarContent = (props) => {
             <a key={i} href="#" style={styles.sidebarLink}>Mock menu item {i}</a>
         );
     }
-}
+
+    return (
+        <MaterialTitlePanel title="Menu" style={style}>
+            <div style={styles.content}> 
+                <a href="index.html" style={styles.sidebarLink}>Home</a>
+                <div style={styles.divider}>
+                {links}
+                </div>
+            </div>
+        </MaterialTitlePanel>
+    );
+};
+
+SidebarContent.propTypes = {
+    style: PropTypes.object,
+};
+
+export default SidebarContent;
