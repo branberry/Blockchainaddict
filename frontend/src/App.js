@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import { MenuButton } from './components/MenuButton.js';
 import Sidebar from 'react-sidebar';
+import MaterialTitlePanel from './components/MaterialTitlePanel';
+import SidebarContent from './components/SidebarContent';
 import './styles/App.css';
 
 //
@@ -20,6 +22,7 @@ const styles = {
 };
 
 const mql = window.matchMedia(`(min-width: 800px)`);
+
 
 class App extends Component {
   constructor(props) {
@@ -63,33 +66,37 @@ onSetSidebarOpen = (open) => {
   }
   
   render() {
-    const sidebarContent = <b> Sidebar Content </b>;
+    const sidebar = <SidebarContent/>;
+    const contentHeader = (
+      <span>
+      {!this.state.docked && <a onClick={this.toggleOpen.bind(this)} href="#" style={styles.contentHeaderMenuLink}>=</a>}}
+      <span> Responsive React Sidebar</span>
+      </span>
+    );
+
     const sidebarProps = {
-      sidebar: this.state.sidebarOpen,
+      sidebar: sidebar,
       docked: this.state.sidebarDocked,
-      onSetOpen: this.onSetSidebarOpen
+      onSetOpen: this.onSetSidebarOpen,
+      open: this.state.open,
     };
 
     return(
 
       <div className="App">
-      <Sidebar sidebar={sidebarContent}
-      open={this.state.sidebarOpen}
-      docked={this.state.sidebarDocked}
-      onSetOpen={this.onSetSidebarOpen}>
-    </Sidebar>
-        <header className="App-header">
-          <h1 className="App-title">Blockchain Addict</h1>
-        </header>
-        <div className="line-separator"></div>
-      <Userboard/>
 
+          <header className="App-header">
+            <h1 className="App-title">Blockchain Addict</h1>
+          </header>
+          <div className="line-separator"></div>
+        <Userboard/>
       </div>
 
     );
   }
 }
 export default App;
+
 /*
  ---- Code for the original display ----
 <div className="App">

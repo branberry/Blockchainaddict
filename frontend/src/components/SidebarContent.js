@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MaterialTitlePanel from './material_title_panel';
+import MaterialTitlePanel from './MaterialTitlePanel.js';
 import PropTypes from 'prop-types';
 
 const styles = {
