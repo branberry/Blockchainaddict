@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "crypto-js": "^3.1.9-1",
+    "deeplearn": "^0.4.2",
     "express": "^4.16.2",
     "mysql": "^2.15.0"
   }

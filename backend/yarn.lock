@@ -66,6 +66,12 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
+deeplearn@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/deeplearn/-/deeplearn-0.4.2.tgz#7e270f2056ebc6ced1308a964c4fe59c0c1f9f57"
+  dependencies:
+    seedrandom "~2.4.3"
+
 depd@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
@@ -274,6 +280,10 @@ readable-stream@2.3.3:
 safe-buffer@5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+seedrandom@~2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/seedrandom/-/seedrandom-2.4.3.tgz#2438504dad33917314bff18ac4d794f16d6aaecc"
 
 send@0.16.1:
   version "0.16.1"
