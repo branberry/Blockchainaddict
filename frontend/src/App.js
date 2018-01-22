@@ -67,12 +67,6 @@ onSetSidebarOpen = (open) => {
   
   render() {
     const sidebar = <SidebarContent/>;
-    const contentHeader = (
-      <span>
-      {!this.state.docked && <a onClick={this.toggleOpen.bind(this)} href="#" style={styles.contentHeaderMenuLink}>=</a>}}
-      <span> Responsive React Sidebar</span>
-      </span>
-    );
 
     const sidebarProps = {
       sidebar: sidebar,
@@ -84,6 +78,13 @@ onSetSidebarOpen = (open) => {
     return(
 
       <div className="App">
+      <Sidebar {...sidebarProps}>
+        <MaterialTitlePanel >
+          <div style={styles.content}>
+          </div>
+        </MaterialTitlePanel>
+      </Sidebar>
+  
 
           <header className="App-header">
             <h1 className="App-title">Blockchain Addict</h1>
