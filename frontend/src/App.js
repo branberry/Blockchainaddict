@@ -10,42 +10,42 @@ import './styles/App.css';
   An array with hardcoded todo values which are objects.
 */
 
-const mql = window.matchMedia(`(min-width: 800px)`);
-
+const styles = {
+  contentHeaderMenuLink: {
+    textDecoration: 'none',
+    color: 'white',
+    padding: 8,
+  },
+  content: {
+    padding: '16px',
+  },
+};
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      mql: mql,
       docked: false,
       open: false,
-    }
+      transitions: true,
+      touch: true,
+      shadow: true,
+      pullRight: false,
+      touchHandleWidth: 20,
+      dragToggleDistance: 30,
+    };
 
-    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
-    this.toggleOpen = this.toggleOpen.bind(this);
-    this.onSetOpen = this.onSetSidebarOpen.bind(this);
-  }
-onSetSidebarOpen = (open) => {
-    this.setState({sidebarOpen: open});
-  }
-
-  componentWillMount = () => {
-    mql.addListener(this.mediaQueryChanged);
-    this.setState({mql: mql, sidebarDocked: mql.matches});
-  }
-
-  componentWillUnmount = () => {
-    this.state.mql.removeListener(this.mediaQueryChanged);
+    this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
+    this.renderPropNumber = this.renderPropNumber.bind(this);
+    this.onSetOpen = this.onSetOpen.bind(this);
+    this.menuButtonClick = this.menuButtonClick.bind(this);
   }
 
-  mediaQueryChanged = () => {
-    this.setState({
-      sidebarDocked: this.state.mql.matches,
-      docked: this.state.mql.matches,
-    });
+  onSetOpen(open) {
+    this.setState({open: open});
   }
+
   toggleOpen(ev) {
     this.setState({open: !this.state.open});
 
@@ -53,24 +53,76 @@ onSetSidebarOpen = (open) => {
       ev.preventDefault();
     }
   }
-  
+
+  onSetOpen(open) {
+    this.setState({open: open});
+  }
+
+  menuButtonClick(ev) {
+    ev.preventDefault();
+    this.onSetOpen(!this.state.open);
+  }
+
+  renderPropCheckbox(prop) {
+    const toggleMethod = (ev) => {
+      const newState = {};
+      newState[prop] = ev.target.checked;
+      this.setState(newState);
+    };
+
+    return (
+      <p key={prop}>
+        <input type="checkbox" onChange={toggleMethod} checked={this.state[prop]} id="prop"/>
+        <label htmlFor={prop}> {prop}</label>
+      </p>
+    );
+  }
+
+  renderPropNumber(prop) {
+    const setMethod = (ev) => {
+      const newState = {};
+      newState[prop] = parseInt(ev.target.value,10);
+      this.setState(newState);
+    };
+
+    return (
+      <p key={prop}>
+        {prop} <input type="number" onChange={setMethod} value={this.state[prop]}/>
+      </p>
+    );
+  }
   render() {
     const sidebar = <SidebarContent/>;
 
+    const contentHeader = (
+      <span>
+        {!this.state.docked && <a onClick={this.toggleOpen.bind(this)} href="#" style={styles.contentHeaderMenuLink}>=</a>}
+        <span> Responsive React Sidebar</span>
+      </span>
+    );
     const sidebarProps = {
       sidebar: sidebar,
-      docked: this.state.sidebarDocked,
-      onSetOpen: this.onSetSidebarOpen,
+      docked: this.state.docked,
+      sidebarClassName: 'custom-sidebar-class',
       open: this.state.open,
+      touch: this.state.touch,
+      shadow: this.state.shadow,
+      pullRight: this.state.pullRight,
+      touchHandleWidth: this.state.touchHandleWidth,
+      dragToggleDistance: this.state.dragToggleDistance,
+      transitions: this.state.transitions,
+      onSetOpen: this.onSetOpen,
     };
 
     return(
 
       <div className="App">
-      <Sidebar {...sidebarProps}>
-        <MaterialTitlePanel>
-        </MaterialTitlePanel>
-      </Sidebar>
+      
+        <Sidebar {...sidebarProps}>
+          <MaterialTitlePanel>
+            <button onClick={this.state.toggleOpen}>Menu</button>
+          </MaterialTitlePanel>
+        </Sidebar>
           <header className="App-header">
             <h1 className="App-title">Blockchain Addict</h1>
           </header>

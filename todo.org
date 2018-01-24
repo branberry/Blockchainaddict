@@ -1,4 +1,5 @@
 * TODO Create a login page
 * TODO Authenticate logins and store them in MongoDB database that is located on my laptop
 * TODO Polish the slide menu so it actually opens and closes
+* TODO Figure out how to get the button to work
 ***  TODO Redo Theme

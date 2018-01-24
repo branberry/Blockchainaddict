@@ -2650,7 +2650,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.16:
+fbjs@^0.8.16, fbjs@^0.8.4:
   version "0.8.16"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
   dependencies:
@@ -4806,6 +4806,10 @@ object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
+object-assign@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-2.1.1.tgz#43c36e5d569ff8e4816c4efa8be02d26967c18aa"
+
 object-hash@^1.1.4:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/object-hash/-/object-hash-1.2.0.tgz#e96af0e96981996a1d47f88ead8f74f1ebc4422b"
@@ -5633,6 +5637,13 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-addons-pure-render-mixin@^15.6.2:
+  version "15.6.2"
+  resolved "https://registry.yarnpkg.com/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-15.6.2.tgz#6b83f40b6b36ee40735cbd6125eb3f13ce1cddc9"
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
+
 react-burger-menu@^2.1.11:
   version "2.1.11"
   resolved "https://registry.yarnpkg.com/react-burger-menu/-/react-burger-menu-2.1.11.tgz#3fad92a2edefb10da8a5e8db675f0fec7bd1e4c8"
@@ -5642,6 +5653,13 @@ react-burger-menu@^2.1.11:
     eve "~0.5.1"
     prop-types "^15.5.8"
     snapsvg-cjs "0.0.6"
+
+react-button@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-button/-/react-button-1.2.1.tgz#c431d15b3b85e450caed69b006587de83b699682"
+  dependencies:
+    object-assign "^2.0.0"
+    react-style-normalizer "^1.1.5"
 
 react-buttons@^0.0.11:
   version "0.0.11"
@@ -5806,6 +5824,10 @@ react-scripts@1.0.17:
 react-sidebar@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/react-sidebar/-/react-sidebar-2.3.2.tgz#ec140bea8a6f5fa3d8ea7a56479665b44cf4f9cf"
+
+react-style-normalizer@^1.1.5:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/react-style-normalizer/-/react-style-normalizer-1.2.8.tgz#7e84b3d25cea6225545c5af68963b225885344a2"
 
 react@>=15.5, react@^16.2.0:
   version "16.2.0"
