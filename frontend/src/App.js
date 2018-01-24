@@ -40,6 +40,7 @@ class App extends Component {
     this.renderPropNumber = this.renderPropNumber.bind(this);
     this.onSetOpen = this.onSetOpen.bind(this);
     this.menuButtonClick = this.menuButtonClick.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
   }
 
   onSetOpen(open) {
@@ -120,7 +121,7 @@ class App extends Component {
       
         <Sidebar {...sidebarProps}>
           <MaterialTitlePanel>
-            <button onClick={this.state.toggleOpen}>Menu</button>
+            <button onClick={this.toggleOpen}>Menu</button>
           </MaterialTitlePanel>
         </Sidebar>
           <header className="App-header">
