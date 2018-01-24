@@ -118,16 +118,15 @@ class App extends Component {
     return(
 
       <div className="App">
-      
-        <Sidebar {...sidebarProps}>
-          <MaterialTitlePanel>
-            <button onClick={this.toggleOpen}>Menu</button>
-          </MaterialTitlePanel>
-        </Sidebar>
           <header className="App-header">
             <h1 className="App-title">Blockchain Addict</h1>
           </header>
           <div className="line-separator"></div>
+          <Sidebar {...sidebarProps}>
+          <MaterialTitlePanel>
+            <button onClick={this.toggleOpen}>Menu</button>
+          </MaterialTitlePanel>
+        </Sidebar>
         <Userboard/>
       </div>
 

@@ -3,9 +3,8 @@ import { Bar, Line } from 'react-chartjs-2';
 //import { createStore } from 'redux';
 import '../styles/UserBoard.css';
 
-
 export class Userboard extends Component {
-  constructor(props) {
+   constructor(props) {
     super(props);
     this.state = {
       coinVals : {
@@ -22,10 +21,18 @@ export class Userboard extends Component {
         'Po.et' : 843.156
       },
       LineChartData : {
-        labels : [],
+        labels : [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday'
+        ],
         datasets : [ 
           {
-            label: 'Portfolio Historical Values',
+            label: 'USD ($)',
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',
@@ -41,9 +48,9 @@ export class Userboard extends Component {
             pointHoverBackgroundColor: 'rgba(75,192,192,1)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
             pointHoverBorderWidth: 2,
-            pointRadius: 1,
+            pointRadius: 3,
             pointHitRadius: 10,
-            data: [1,3,6,2,4,5,1]
+            data: [60,5,7,23,23,5,6]
           }
         ]
       },
@@ -149,7 +156,7 @@ export class Userboard extends Component {
   }
   
   render() {
-    console.log(Date.now());
+    console.log(new Date());
     return (
       <div className="container">
         <h1 className="dashboard"> Your Dashboard </h1>
