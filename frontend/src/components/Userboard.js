@@ -10,6 +10,7 @@ export class Userboard extends Component {
       coinVals : {
 
       },
+      
       previousCryptoVals: {},
       networth: 0,
       cryptoAmount: {
@@ -27,8 +28,8 @@ export class Userboard extends Component {
           'Tuesday',
           'Wednesday',
           'Thursday',
-          'Friday',
-          'Saturday'
+          new Date().setDate(Date()-30),
+          new Date()
         ],
         datasets : [ 
           {
