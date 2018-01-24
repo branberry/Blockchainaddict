@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Goals } from './Goals.js';
 import { Bar, Line } from 'react-chartjs-2';
-import { setInterval } from 'timers';
-import { createStore } from 'redux';
+//import { createStore } from 'redux';
 import '../styles/UserBoard.css';
 
 

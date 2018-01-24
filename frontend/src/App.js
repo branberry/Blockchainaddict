@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
-import { MenuButton } from './components/MenuButton.js';
 import Sidebar from 'react-sidebar';
 import MaterialTitlePanel from './components/MaterialTitlePanel';
 import SidebarContent from './components/SidebarContent';
@@ -10,16 +9,6 @@ import './styles/App.css';
 /*
   An array with hardcoded todo values which are objects.
 */
-const styles = {
-  contentHeaderMenuLink: {
-    textDecoration: 'none',
-    color: 'white',
-    padding: 8,
-  },
-  content: {
-    padding: '16px',
-  },
-};
 
 const mql = window.matchMedia(`(min-width: 800px)`);
 
@@ -79,13 +68,9 @@ onSetSidebarOpen = (open) => {
 
       <div className="App">
       <Sidebar {...sidebarProps}>
-        <MaterialTitlePanel >
-          <div style={styles.content}>
-          </div>
+        <MaterialTitlePanel>
         </MaterialTitlePanel>
       </Sidebar>
-  
-
           <header className="App-header">
             <h1 className="App-title">Blockchain Addict</h1>
           </header>

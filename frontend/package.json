@@ -7,7 +7,7 @@
     "bulma": "^0.6.1",
     "chart.js": "^2.7.1",
     "dazzle": "^1.0.4",
-    "deeplearn": "^0.3.13",
+    "deeplearn": "^0.4.2",
     "node-sass-chokidar": "^0.0.3",
     "package.json": "^2.0.1",
     "react": "^16.2.0",
@@ -34,7 +34,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/styles -o src/styles --watch --recursive"
   },
   "devDependencies": {
-    "electron": "1.7.9",
+    "electron": "1.7.11",
     "redux-devtools": "^3.4.1"
   }
 }
