@@ -108,7 +108,7 @@ export class Userboard extends Component {
       }
     }
    LineChartData.labels.reverse();
-   this.setState({LineChartData});
+   this.state.LineChartData.labels = LineChartData.labels;
   }
       // using the current time stamp as an index fopr the object which contains the json object from the request as a value
       // let now = new Date(); 
