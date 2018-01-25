@@ -10,7 +10,7 @@ export class Userboard extends Component {
       coinVals : {
 
       },
-      
+
       previousCryptoVals: {},
       networth: 0,
       cryptoAmount: {
@@ -23,30 +23,24 @@ export class Userboard extends Component {
       },
       LineChartData : {
         labels : [
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          new Date().setDate(Date()-30),
-          new Date()
+
         ],
         datasets : [ 
           {
             label: 'USD ($)',
             fill: false,
             lineTension: 0.1,
-            backgroundColor: 'rgba(75,192,192,0.4)',
-            borderColor: 'rgba(75,192,192,1)',
+            backgroundColor: 'rgba(255,0,0,0.4)',
+            borderColor: 'rgba(255,0,0,0.4)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
+            pointBorderColor: 'rgba(255,0,0,0.4)',
             pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBackgroundColor: 'rgba(255,0,0,0.4)',
             pointHoverBorderColor: 'rgba(220,220,220,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 3,
@@ -75,8 +69,46 @@ export class Userboard extends Component {
     };
   }
 
-  calculateNetworth(props) {
-    
+  generateDates() {
+    let d = new Date();
+    let LineChartData = Object.assign({}, this.state.LineChartData);
+    for(let i = 0; i < 7; i++) {
+      let day = d.getDay();
+
+      if(day - i < 0){
+        day = day + 7 - i;
+      } else {
+        day = day - i
+      }
+      
+      switch(day) {
+        case 0:
+          LineChartData.labels[i] = 'Sunday'
+          break;
+        case 1:
+          LineChartData.labels[i] = 'Monday'
+          break;
+        case 2:
+          LineChartData.labels[i] = 'Tuesday'
+          break;
+        case 3:
+          LineChartData.labels[i] = 'Wednesday'
+          break;
+        case 4:
+          LineChartData.labels[i] = 'Thursday'
+          break
+        case 5:
+          LineChartData.labels[i] = 'Friday'
+          break;
+        case 6:
+          LineChartData.labels[i] = 'Saturday'
+          break;
+        default:
+          break;
+      }
+    }
+   LineChartData.labels.reverse();
+   this.setState({LineChartData});
   }
       // using the current time stamp as an index fopr the object which contains the json object from the request as a value
       // let now = new Date(); 
@@ -85,6 +117,7 @@ export class Userboard extends Component {
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentDidMount(){
+
     let networth = 0;
     this.setState({networth});
     fetch('https://min-api.cryptocompare.com/data/price?fsym=ADA&tsyms=USD')
@@ -157,9 +190,10 @@ export class Userboard extends Component {
   }
   
   render() {
-    console.log(new Date());
+  
     return (
       <div className="container">
+        {this.generateDates()}
         <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
          <h2 className="dashboard"> Your Net Worth: ${Number(Math.round(this.state.networth +'e2') +'e-2')} </h2>

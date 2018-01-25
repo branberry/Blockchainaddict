@@ -36,7 +36,7 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/styles -o src/styles --watch --recursive"
   },
   "devDependencies": {
-    "electron": "1.7.11",
+    "electron": "^1.7.11",
     "redux-devtools": "^3.4.1"
   }
 }
