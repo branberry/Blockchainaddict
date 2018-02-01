@@ -87,10 +87,13 @@ export class Userboard extends Component {
     this.menuButtonClick = this.menuButtonClick.bind(this);
     this.toggleOpen = this.toggleOpen.bind(this);
   }
-
+  /*
+    This function is used to generate the dates for the line graph. This function generates the days from the last week.
+  */
   generateDates() {
     let d = new Date();
     let LineChartData = Object.assign({}, this.state.LineChartData);
+
     for(let i = 0; i < 7; i++) {
       let day = d.getDay();
 
