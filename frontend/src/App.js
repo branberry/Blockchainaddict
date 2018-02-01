@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import Login from './components/Login';
+
 import './styles/App.css';
 
 //
@@ -35,11 +36,13 @@ class App extends Component {
     return(
 
       <div className="App">
+
           <header className="App-header">
             <h1 className="App-title">Blockchain Addict</h1>
           </header>
           <div className="line-separator"></div>
 
+    
         <Userboard/>
       </div>
 

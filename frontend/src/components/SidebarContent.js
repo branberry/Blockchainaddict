@@ -1,6 +1,7 @@
 import React from 'react';
 import MaterialTitlePanel from './MaterialTitlePanel.js';
 import PropTypes from 'prop-types';
+import { Link, Route, Switch } from 'react-router-dom';
 
 const styles = {
     sidebar: {
@@ -33,11 +34,9 @@ const SidebarContent = (props) => {
 
     const links = [];
 
-    for(let i = 0; i < 10; i++) {
-        links.push(
-            <a key={i} href="#" style={styles.sidebarLink}>Mock menu item {i}</a>
-        );
-    }
+     links.push(<Link to="/" style={styles.sidebarLink}>Homes</Link>);
+     links.push(<Link to="/category" style={styles.sidebarLink}>Category</Link>);
+     links.push(<Link to="/products" style={styles.sidebarLink}>Products</Link>);   
 
     return (
         <MaterialTitlePanel title="Menu" style={style}>
@@ -46,6 +45,7 @@ const SidebarContent = (props) => {
                 <div style={styles.divider}>
                 {links}
                 </div>
+                
             </div>
         </MaterialTitlePanel>
     );

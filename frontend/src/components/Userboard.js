@@ -3,9 +3,30 @@ import { Bar, Line } from 'react-chartjs-2';
 import Sidebar from 'react-sidebar';
 import MaterialTitlePanel from './MaterialTitlePanel';
 import SidebarContent from './SidebarContent';
+import { Link, Route, Switch } from 'react-router-dom';
 //import { createStore } from 'redux';
 import '../styles/UserBoard.css';
 
+/* Home component */
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+/* Category component */
+const Category = () => (
+  <div>
+    <h2>Category</h2>
+  </div>
+)
+
+/* Products component */
+const Products = () => (
+  <div>
+    <h2>Products</h2>
+  </div>
+)
 const styles = {
   contentHeaderMenuLink: {
     textDecoration: 'none',
@@ -240,8 +261,7 @@ export class Userboard extends Component {
 
     return (
       <p key={prop}>
-        <input type="checkbox" onChange={toggleMethod} checked={this.state[prop]} id="prop"/>
-        <label htmlFor={prop}> {prop}</label>
+
       </p>
     );
   }
@@ -287,6 +307,7 @@ export class Userboard extends Component {
       {this.generateDates()}
        <Sidebar {...sidebarProps}>
           <MaterialTitlePanel>
+
             <button onClick={this.toggleOpen}>Menu</button>
           </MaterialTitlePanel>
         </Sidebar>
@@ -321,6 +342,7 @@ export class Userboard extends Component {
                   <li>Po.et: ${Number(Math.round(this.state.cryptoAmount['Po.et'] +'e2') +'e-2')}</li>
                 </ul>
              </div>
+             
              <div className="col-lg-4"> 
               <Line 
                 data={this.state.LineChartData}
