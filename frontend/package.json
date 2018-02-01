@@ -22,6 +22,7 @@
     "react-redux": "^5.0.6",
     "react-refetch": "^1.0.4",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "react-sidebar": "^2.3.2",
     "redux": "^3.7.2",
