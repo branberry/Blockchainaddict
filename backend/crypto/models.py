@@ -16,7 +16,7 @@ class UserPortfolio(models.Model):
     user = models.ManyToManyField(User)
     currency_name = models.CharField(max_length=200)
     currency_code = models.CharField(max_length=10)
-    currency_amount = models.IntegerField()
+    currency_amount = models.FloatField()
 
     def __str__(self):
         return self.user_id

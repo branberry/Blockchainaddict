@@ -6,3 +6,6 @@ def index(request):
 
 def getUsers(request, u_id):
     return HttpResponse("hi")
+
+def getUserValues(request, u_id):
+    return HttpResponse("hi")
