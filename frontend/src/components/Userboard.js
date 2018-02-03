@@ -102,6 +102,7 @@ export class Userboard extends Component {
         ]
       }
     };
+    
     this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
     this.renderPropNumber = this.renderPropNumber.bind(this);
     this.onSetOpen = this.onSetOpen.bind(this);
