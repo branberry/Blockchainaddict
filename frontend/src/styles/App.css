@@ -35,11 +35,11 @@ h2 {
   font-family: Helvetica; }
 
 button {
-  background-color: #222222;
+  background-color: #373a47;
   color: #AAAAAA;
   text-align: center;
   border-radius: 4px;
-  border: 2px solid #AAAAAA;
+  border: none;
   text-decoration: none; }
 
 @keyframes App-logo-spin {

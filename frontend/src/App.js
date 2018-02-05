@@ -24,7 +24,8 @@ class App extends Component {
   }
 
   toggleOpen() {
-    this.state.open = !this.state.open;
+    let open = !this.state.open;
+    this.setState({open});
   }
   render() {
 
@@ -35,7 +36,7 @@ class App extends Component {
       
         <div className="App">
             <Nav menuState={this.state.open}/>
-            <button onClick={this.toggleOpen}> Menu </button>
+            
             <Route path='/' component={Login}/>
             <Route path='/userboard' component={Userboard}/>
         </div>
