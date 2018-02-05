@@ -37,7 +37,7 @@ class App extends Component {
         <div className="App">
             <Nav menuState={this.state.open}/>
             
-            <Route path='/' exact component={Login}/>
+            <Route path='/login' exact component={Login}/>
             <Route path='/userboard' exact component={Userboard}/>
         </div>
       </BrowserRouter>
