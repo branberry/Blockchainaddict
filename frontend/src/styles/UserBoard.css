@@ -2,5 +2,8 @@
   color: #AAAAAA;
   font-family: Helvetica; }
 
+ul {
+  list-style: none; }
+
 li {
   font-size: 16px; }

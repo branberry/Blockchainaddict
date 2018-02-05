@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Userboard } from './components/Userboard.js';
 import Login from './components/Login';
-import Routes from './routes'
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter,Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Nav from './components/Nav';
 import './styles/App.css';
-
 //
 /*
   An array with hardcoded todo values which are objects.
@@ -17,30 +17,29 @@ class App extends Component {
     super(props);
 
     this.state = {
-      docked: false,
       open: false,
-      transitions: true,
-      touch: true,
-      shadow: true,
-      pullRight: false,
-      touchHandleWidth: 20,
-      dragToggleDistance: 30,
     };
 
-
+    this.toggleOpen.bind(this);
   }
 
-
+  toggleOpen() {
+    this.state.open = !this.state.open;
+  }
   render() {
 
 
     return(
+ 
       <BrowserRouter>
+      
         <div className="App">
-            <Userboard/>
+            <Nav menuState={this.state.open}/>
+            <button onClick={this.toggleOpen}> Menu </button>
+            <Route path='/' component={Login}/>
+            <Route path='/userboard' component={Userboard}/>
         </div>
       </BrowserRouter>
-
     );
   }
 }

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
-import Sidebar from 'react-sidebar';
-import MaterialTitlePanel from './MaterialTitlePanel';
-import SidebarContent from './SidebarContent';
 import { Link, Route, Switch } from 'react-router-dom';
 //import { createStore } from 'redux';
 import '../styles/UserBoard.css';
@@ -102,12 +99,7 @@ export class Userboard extends Component {
         ]
       }
     };
-    
-    this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
-    this.renderPropNumber = this.renderPropNumber.bind(this);
-    this.onSetOpen = this.onSetOpen.bind(this);
-    this.menuButtonClick = this.menuButtonClick.bind(this);
-    this.toggleOpen = this.toggleOpen.bind(this);
+    this.generateDates.bind(this);
   }
   /*
     This function is used to generate the dates for the line graph. This function generates the days from the last week.
@@ -232,86 +224,14 @@ export class Userboard extends Component {
     networth = this.state.networth;
     this.setState({networth});
   }
-  onSetOpen(open) {
-    this.setState({open: open});
-  }
 
-  toggleOpen(ev) {
-    this.setState({open: !this.state.open});
-
-    if (ev) {
-      ev.preventDefault();
-    }
-  }
-
-  onSetOpen(open) {
-    this.setState({open: open});
-  }
-
-  menuButtonClick(ev) {
-    ev.preventDefault();
-    this.onSetOpen(!this.state.open);
-  }
-
-  renderPropCheckbox(prop) {
-    const toggleMethod = (ev) => {
-      const newState = {};
-      newState[prop] = ev.target.checked;
-      this.setState(newState);
-    };
-
-    return (
-      <p key={prop}>
-
-      </p>
-    );
-  }
-
-  renderPropNumber(prop) {
-    const setMethod = (ev) => {
-      const newState = {};
-      newState[prop] = parseInt(ev.target.value,10);
-      this.setState(newState);
-    };
-
-    return (
-      <p key={prop}>
-        {prop} <input type="number" onChange={setMethod} value={this.state[prop]}/>
-      </p>
-    );
-  }
   render() {
-    const sidebar = <SidebarContent/>;
 
-    const contentHeader = (
-      <span>
-        {!this.state.docked && <a onClick={this.toggleOpen.bind(this)} href="#" style={styles.contentHeaderMenuLink}>=</a>}
-        <span> Responsive React Sidebar</span>
-      </span>
-    );
-    const sidebarProps = {
-      sidebar: sidebar,
-      docked: this.state.docked,
-      sidebarClassName: 'custom-sidebar-class',
-      open: this.state.open,
-      touch: this.state.touch,
-      shadow: this.state.shadow,
-      pullRight: this.state.pullRight,
-      touchHandleWidth: this.state.touchHandleWidth,
-      dragToggleDistance: this.state.dragToggleDistance,
-      transitions: this.state.transitions,
-      onSetOpen: this.onSetOpen,
-    };
+
     return (
 
       <div className="container">
       {this.generateDates()}
-       <Sidebar {...sidebarProps}>
-          <MaterialTitlePanel>
-
-            <button onClick={this.toggleOpen}>Menu</button>
-          </MaterialTitlePanel>
-        </Sidebar>
         <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
          <h2 className="dashboard"> Your Net Worth: ${Number(Math.round(this.state.networth +'e2') +'e-2')} </h2>
