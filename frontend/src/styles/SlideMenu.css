@@ -10,12 +10,15 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: #AAAAAA; }
+  color: #AAAAAA;
+  text-decoration: none; }
 
 /* mouse over link */
 a:hover {
-  color: #222222; }
+  color: #222222;
+  text-decoration: none; }
 
 /* selected link */
 a:active {
-  color: blue; }
+  color: white;
+  text-decoration: none; }

@@ -17,14 +17,18 @@ a:link {
 /* visited link */
 a:visited {
   color: $grey;
+  text-decoration: none;
 }
 
 /* mouse over link */
 a:hover {
   color: $headerColor;
+  text-decoration: none;
+  
 }
 
 /* selected link */
 a:active {
-  color: blue;
+  color: white;
+  text-decoration: none;
 }
