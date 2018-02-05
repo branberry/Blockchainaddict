@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {slide as Menu } from 'react-burger-menu';
+import { Link } from 'react-router-dom';
 import '../styles/SlideMenu.css';
 
 const styles = {
@@ -37,6 +38,16 @@ const styles = {
       }
 }
 export default class Nav extends Component {
+    constructor(props) {
+        super(props);
+
+        this.handleClick.bind(this);
+    }
+
+    handleClick(event) {
+        console.log(event);
+    }
+
     showSettings(event) {
         event.preventDefault();
     }
@@ -45,7 +56,7 @@ export default class Nav extends Component {
         return (
             <Menu isOpen={this.props.menuState} styles={styles}  pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } >
                 <button  id="home" className="menu-item" href="/">Home</button>
-                <button id="about" className="menu-item" href="/userboard">Userboard</button>
+                <button id="about" className="menu-item" href="/userboard"><Link to="/userboard">Userboard</Link></button>
                 <button id="about" className="menu-item" href="/userboard">Contact</button>
                 <button id="about" className="menu-item" href="/userboard">ettings</button>
             </Menu>

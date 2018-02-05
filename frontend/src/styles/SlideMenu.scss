@@ -8,3 +8,23 @@ $grey: #AAAAAA;
 .container-li {
   margin-bottom: 10px;
 }
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: $grey;
+}
+
+/* mouse over link */
+a:hover {
+  color: $headerColor;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}

@@ -3,3 +3,19 @@
 
 .container-li {
   margin-bottom: 10px; }
+
+/* unvisited link */
+a:link {
+  color: red; }
+
+/* visited link */
+a:visited {
+  color: #AAAAAA; }
+
+/* mouse over link */
+a:hover {
+  color: #222222; }
+
+/* selected link */
+a:active {
+  color: blue; }

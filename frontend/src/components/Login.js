@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "../styles/Login.css";
 
 export default class Login extends Component {
@@ -29,7 +30,9 @@ export default class Login extends Component {
         return (
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
-
+                    <FormGroup controlId="email" bsSize="large">
+                    <ControlLabel>Email</ControlLabel>
+                    </FormGroup>
                 </form>
             </div>
         );
