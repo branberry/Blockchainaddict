@@ -4,26 +4,6 @@ import { Link, Route, Switch } from 'react-router-dom';
 //import { createStore } from 'redux';
 import '../styles/UserBoard.css';
 
-/* Home component */
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
-
-/* Category component */
-const Category = () => (
-  <div>
-    <h2>Category</h2>
-  </div>
-)
-
-/* Products component */
-const Products = () => (
-  <div>
-    <h2>Products</h2>
-  </div>
-)
 const styles = {
   contentHeaderMenuLink: {
     textDecoration: 'none',
@@ -77,7 +57,7 @@ export class Userboard extends Component {
             pointHoverBorderWidth: 2,
             pointRadius: 3,
             pointHitRadius: 10,
-            data: [60,5,7,23,23,5,6]
+            data: [60,5,7,23,23,5,6],
           }
         ]
       },
@@ -99,6 +79,7 @@ export class Userboard extends Component {
         ]
       }
     };
+
     this.generateDates.bind(this);
   }
   /*
@@ -152,7 +133,7 @@ export class Userboard extends Component {
       // let testObj = {};
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
-  componentDidMount(){
+  componentWillMount() {
 
     let networth = 0;
     this.setState({networth});

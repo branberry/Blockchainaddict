@@ -58,7 +58,7 @@ export default class Nav extends Component {
                 <button  id="home" className="menu-item" href="/">Home</button>
                 <button id="about" className="menu-item"><Link to="/userboard">Userboard</Link></button>
                 <button id="about" className="menu-item"><Link to="/login">Login</Link></button>
-                <button id="about" className="menu-item" href="/userboard">ettings</button>
+                <button id="about" className="menu-item" href="/userboard">Settings</button>
             </Menu>
         );
     }

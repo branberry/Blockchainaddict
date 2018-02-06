@@ -20,9 +20,10 @@ def submitLogin(request):
     # Parses response data from byte string to a string
     post_data = request.body.decode()
 
-    #parses json string to dictionary
+    # parses json string to dictionary
     data = json.loads(post_data)
 
+    # getting the user tuple from the database
     u = User.objects.filter(email=data['email'])
-    print(data['email'])
+    print(u)
     return HttpResponse("logged in")
