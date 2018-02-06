@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
+from .models import User
 import json
 # Create your views here.
 def index(request):
@@ -16,7 +17,12 @@ def getUserValues(request, u_id):
 #@ensure_csrf_cookie
 @csrf_exempt
 def submitLogin(request):
+    # Parses response data from byte string to a string
     post_data = request.body.decode()
+
+    #parses json string to dictionary
     data = json.loads(post_data)
+
+    u = User.objects.filter(email=data['email'])
     print(data['email'])
     return HttpResponse("logged in")

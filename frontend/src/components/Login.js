@@ -22,13 +22,14 @@ export default class Login extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
-
     }
 
     handleSubmit = (event) => {
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
         const headers = {
             'Content-Type':'application/json',                                                                                                
              'Access-Control-Origin': '*',
+             'Access-Control-Allow-Headers': '*'
          }
 
          const data = {
