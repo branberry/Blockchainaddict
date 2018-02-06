@@ -17,12 +17,14 @@ export default class Login extends Component {
     }
 
     handleChange = (event) => {
+        
         this.setState({
             [event.target.id]: event.target.value
         });
     }
 
     handleSubmit = (event) => {
+        fetch()
         event.preventDefault();
     }
 
@@ -39,7 +41,7 @@ export default class Login extends Component {
                          onChange={this.handleChange}
                         />
                     </FormGroup>
-                    <FormGroup>
+                    <FormGroup controlId="password" bsSize="large">
                         <ControlLabel>Password</ControlLabel>
                         <FormControl
                          value={this.state.password}

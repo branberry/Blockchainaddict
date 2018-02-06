@@ -11,7 +11,8 @@ $grey: #AAAAAA;
 
 /* unvisited link */
 a:link {
-  color: red;
+  color: $grey;
+  
 }
 
 /* visited link */
