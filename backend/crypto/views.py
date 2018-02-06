@@ -2,9 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from .models import User
+from .Predict import Predict
+from .Fetchdata import Fetchdata
 import json
 # Create your views here.
 def index(request):
+    p = Predict()
+    data = Fetchdata()
+    data.requestData()
+    print(p.readData("heh"))
     return HttpResponse("Hello, world. You're at the crypto index.")
 
 def getUsers(request, u_id):
@@ -19,7 +25,7 @@ def getUserValues(request, u_id):
 def submitLogin(request):
     # Parses response data from byte string to a string
     post_data = request.body.decode()
-
+    
     # parses json string to dictionary
     data = json.loads(post_data)
 
@@ -27,3 +33,4 @@ def submitLogin(request):
     u = User.objects.filter(email=data['email'])
     print(u)
     return HttpResponse("logged in")
+

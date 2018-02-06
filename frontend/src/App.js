@@ -4,6 +4,7 @@ import Login from './components/Login';
 import { BrowserRouter,Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Nav from './components/Nav';
+import Signup from './components/Signup';
 import './styles/App.css';
 //
 /*
@@ -36,9 +37,9 @@ class App extends Component {
       
         <div className="App">
             <Nav menuState={this.state.open}/>
-            
             <Route path='/login' exact component={Login}/>
             <Route path='/userboard' exact component={Userboard}/>
+            <Route path='/signup' exact component={Signup}/>
         </div>
       </BrowserRouter>
     );

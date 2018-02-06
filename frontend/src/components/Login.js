@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import DjangoCSRFToken from 'django-react-csrftoken'
+import DjangoCSRFToken from 'django-react-csrftoken';
+import Signup from './Signup';
+import { Link } from 'react-router-dom';
 import "../styles/Login.css";
 
 export default class Login extends Component {
@@ -77,6 +79,9 @@ export default class Login extends Component {
                      >
                         Login
                     </Button>
+
+                    <h4>Not a registered user? Sign up below</h4>
+                    <Button><Link to="/signup"> Sign Up </Link></Button>
                 </form>
             </div>
         );
