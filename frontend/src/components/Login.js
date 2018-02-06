@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import DjangoCSRFToken from 'django-react-csrftoken'
 import "../styles/Login.css";
 
 export default class Login extends Component {
@@ -21,10 +22,27 @@ export default class Login extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+
     }
 
     handleSubmit = (event) => {
-        fetch()
+        const headers = {
+            'Content-Type':'application/json',                                                                                                
+             'Access-Control-Origin': '*',
+         }
+
+         const data = {
+            email: this.state.email,
+            password: this.state.password,
+         }
+
+        fetch('http://localhost:8000/crypto/login/', {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data),
+        })
+        console.log(this.state.email);
+        console.log(this.state.password);
         event.preventDefault();
     }
 
@@ -32,6 +50,7 @@ export default class Login extends Component {
         return (
             <div className="Login">
                 <form onSubmit={this.handleSubmit}>
+                    <DjangoCSRFToken/>
                     <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
                         <FormControl
