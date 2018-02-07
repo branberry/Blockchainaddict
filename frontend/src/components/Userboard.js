@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { Link, Route, Switch } from 'react-router-dom';
-//import { createStore } from 'redux';
+
 import '../styles/UserBoard.css';
 
 const styles = {
@@ -127,10 +127,6 @@ export class Userboard extends Component {
    LineChartData.labels.reverse();
    this.state.LineChartData.labels = LineChartData.labels;
   }
-      // using the current time stamp as an index fopr the object which contains the json object from the request as a value
-      // let now = new Date(); 
-      // let now_utc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-      // let testObj = {};
 
   // this is grabbing the data for several cryptocurriences from the cryptocompare rest API
   componentWillMount() {

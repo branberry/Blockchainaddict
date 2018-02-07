@@ -1,9 +1,14 @@
 from keras.models import Sequential
-from keras.layers import Dense, Activation
+from keras.layers.core import Dense, Activation
 
 class Predict:
-    def __init__(self):
-        self.data = {}
+    def __init__(self, data):
+        self.data = data
     
-    def readData(self,request):
-        print("hi")
+    def linearRegression(self):
+        model = Sequential()
+        model.add(Dense(32, input_shape=(None,)))
+
+        # mean square error regression
+        model.compile(optimizer='rmsprop',
+        loss='mse')

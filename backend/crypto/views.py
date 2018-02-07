@@ -7,10 +7,8 @@ from .Fetchdata import Fetchdata
 import json
 # Create your views here.
 def index(request):
-    p = Predict()
     data = Fetchdata()
     data.requestData()
-    print(p.readData("heh"))
     return HttpResponse("Hello, world. You're at the crypto index.")
 
 def getUsers(request, u_id):
