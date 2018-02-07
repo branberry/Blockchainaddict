@@ -5,10 +5,12 @@ from .models import User
 from .Predict import Predict
 from .FetchCryptoData import FetchCryptoData
 import json
+
 # Create your views here.
 def index(request):
     data = FetchCryptoData()
-    data.requestData()
+    data.requestData("BTC","USD")
+    print(data.data)
     return HttpResponse("Hello, world. You're at the crypto index.")
 
 def getUsers(request, u_id):
@@ -27,8 +29,14 @@ def submitLogin(request):
     # parses json string to dictionary
     data = json.loads(post_data)
 
-    # getting the user tuple from the database
-    u = User.objects.filter(email=data['email'])
+
+    # if the user logs on with their email:
+    if  data['email'] != None:
+        # getting the user tuple from the database
+        u = User.objects.filter(email=data['email'])
+    elif data['username'] != None:
+        u = User.objects.filter(user_name=data['username'])
+
     print(u)
     return HttpResponse("logged in")
 

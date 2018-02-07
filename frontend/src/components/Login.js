@@ -18,7 +18,9 @@ export default class Login extends Component {
     validateForm() {
         return this.state.email.length > 0 && this.state.password.length > 0;
     }
-
+    /**
+     *  The function logs every keystroke and updates the value of whatever field is being updated
+     */
     handleChange = (event) => {
         
         this.setState({
@@ -30,8 +32,7 @@ export default class Login extends Component {
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
         const headers = {
             'Content-Type':'application/json',                                                                                                
-             'Access-Control-Origin': '*',
-             'Access-Control-Allow-Headers': '*'
+
          }
 
          const data = {
