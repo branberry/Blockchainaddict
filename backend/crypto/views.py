@@ -3,11 +3,11 @@ from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from .models import User
 from .Predict import Predict
-from .Fetchdata import Fetchdata
+from .FetchCryptoData import FetchCryptoData
 import json
 # Create your views here.
 def index(request):
-    data = Fetchdata()
+    data = FetchCryptoData()
     data.requestData()
     return HttpResponse("Hello, world. You're at the crypto index.")
 

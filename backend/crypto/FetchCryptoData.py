@@ -1,7 +1,7 @@
 import requests
 import json
 
-class Fetchdata:
+class FetchCryptoData:
     def __init__(self):
         self.data = {}
     
