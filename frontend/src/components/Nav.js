@@ -55,6 +55,7 @@ export default class Nav extends Component {
     render() {
         return (
             <Menu isOpen={this.props.menuState} styles={styles}  pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } >
+                
                 <button  id="home" className="menu-item" href="/">Home</button>
                 <button id="about" className="menu-item"><Link to="/userboard">Userboard</Link></button>
                 <button id="about" className="menu-item"><Link to="/login">Login</Link></button>

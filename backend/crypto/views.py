@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from .models import User
-from .Predict import Predict
+#from .Predict import Predict
 from .FetchCryptoData import FetchCryptoData
 import json
 
@@ -18,6 +18,21 @@ def getUsers(request, u_id):
 
 def getUserValues(request, u_id):
     return HttpResponse("hi")
+
+def submitSignup(request):
+    # Parsing POST request
+    post_data = request.body.decode()
+
+    # Parse data from JSON string to dictionary
+    data = json.loads(post_data)
+
+    # Querying database to see if username is already there
+    ifUsername = User.objects.filter(user_name=data['username'])
+    # if the
+    if ifUsername != None:
+        return HttpResponse("Sorry, this email is already taken")
+    else:
+        u = User.objects.Create(user_name=data['email'])
 
 # Function to handle user login.
 #@ensure_csrf_cookie
