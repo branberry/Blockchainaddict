@@ -47,11 +47,26 @@ export default class Signup extends Component {
             email: this.state.email,
             password: this.state.password,
         };
+        
+        /**
+         *  send signup information to signup view
+         */
+        fetch('http://localhost:8000/crypto/signup/',{
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data),
+
+        }) 
+
+        event.preventDefault();
     }
 
     render() {
         return (
-            <div><h1>Welcome to the signup page!</h1></div>
+            <div>
+            <DjangoCSRFToken/>
+            <h1>Welcome to the signup page!</h1>
+            </div>
         );
     }
 }
