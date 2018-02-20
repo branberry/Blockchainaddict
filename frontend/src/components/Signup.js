@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import DjangoCSRFToken from 'django-react-csrftoken';
 import '../styles/Signup.css';
 
 export default class Signup extends Component {
@@ -28,6 +30,23 @@ export default class Signup extends Component {
         this.setState({
             [event.target.id]: event.target.value
         });
+    }
+    /**
+     * This function handles the submission of a new user account
+     * to the approriate view
+     */
+    handleSubmit = (event) => {
+        const headers = {
+            'Content-Type':'application/json',                                                                                                
+
+         };
+        
+         // the data for the post request
+        const data = {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+        };
     }
 
     render() {

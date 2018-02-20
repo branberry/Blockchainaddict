@@ -27,7 +27,10 @@ export default class Login extends Component {
             [event.target.id]: event.target.value
         });
     }
-
+    /**
+     * function is called when user submits data and the data is then
+     * sent to the backend view which handles the login
+     */
     handleSubmit = (event) => {
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
         const headers = {
