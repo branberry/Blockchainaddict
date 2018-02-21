@@ -72,7 +72,24 @@ export default class Signup extends Component {
                         <FormControl
                           value={this.state.username}
                           onChange={this.handleChange}
+                          type="username"
                         />
+                    </FormGroup>
+                    <FormGroup controlId="email" bsSize="medium">
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          type="email"
+                          />
+                    </FormGroup>
+                    <FormGroup controlId="password" bsSize="medium">
+                        <ControlLabel>Password</ControlLabel>
+                        <FormControl
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          type="password"
+                          />
                     </FormGroup>
                 </form>
             </div>
