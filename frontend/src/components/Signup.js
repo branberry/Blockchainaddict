@@ -64,8 +64,17 @@ export default class Signup extends Component {
     render() {
         return (
             <div>
-            <DjangoCSRFToken/>
-            <h1>Welcome to the signup page!</h1>
+                <h1>Welcome to the signup page!</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <DjangoCSRFToken/>
+                    <FormGroup controlId="username" bsSize="medium">
+                        <ControlLabel>Username</ControlLabel>
+                        <FormControl
+                          value={this.state.username}
+                          onChange={this.handleChange}
+                        />
+                    </FormGroup>
+                </form>
             </div>
         );
     }
