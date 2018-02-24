@@ -63,11 +63,11 @@ export default class Signup extends Component {
 
     render() {
         return (
-            <div>
+            <div className="Signup">
                 <h1>Welcome to the signup page!</h1>
                 <form onSubmit={this.handleSubmit}>
                     <DjangoCSRFToken/>
-                    <FormGroup controlId="username" bsSize="medium">
+                    <FormGroup controlId="username" bsSize="large">
                         <ControlLabel>Username</ControlLabel>
                         <FormControl
                           value={this.state.username}
@@ -75,7 +75,7 @@ export default class Signup extends Component {
                           type="username"
                         />
                     </FormGroup>
-                    <FormGroup controlId="email" bsSize="medium">
+                    <FormGroup controlId="email" bsSize="large">
                         <ControlLabel>Email</ControlLabel>
                         <FormControl
                           value={this.state.email}
@@ -83,7 +83,7 @@ export default class Signup extends Component {
                           type="email"
                           />
                     </FormGroup>
-                    <FormGroup controlId="password" bsSize="medium">
+                    <FormGroup controlId="password" bsSize="large">
                         <ControlLabel>Password</ControlLabel>
                         <FormControl
                           value={this.state.password}
@@ -91,6 +91,14 @@ export default class Signup extends Component {
                           type="password"
                           />
                     </FormGroup>
+                    <Button
+                     block
+                     bsSize="large"
+                     disabled={!this.validateForm()}
+                     type="submit"
+                     >
+                     Sign up
+                     </Button>
                 </form>
             </div>
         );

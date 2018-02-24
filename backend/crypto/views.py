@@ -19,6 +19,8 @@ def getUsers(request, u_id):
 def getUserValues(request, u_id):
     return HttpResponse("hi")
 
+
+@csrf_exempt
 def submitSignup(request):
     # Parsing POST request
     post_data = request.body.decode()
@@ -27,12 +29,16 @@ def submitSignup(request):
     data = json.loads(post_data)
 
     # Querying database to see if username is already there
-    ifUsername = User.objects.filter(user_name=data['username'])
+    tempUser = User.objects.filter(user_name=data['username'])
+   
     # if the
-    if ifUsername != None:
+    if not tempUser:
+        print(tempUser)
         return HttpResponse("Sorry, this email is already taken")
     else:
-        u = User.objects.Create(user_name=data['email'])
+        u = User.objects.Create(user_name=data['username'],email=data['email'],password=data['password'])
+        u.save()
+        print(u)
 
 # Function to handle user login.
 #@ensure_csrf_cookie

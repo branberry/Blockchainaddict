@@ -2,6 +2,13 @@ $headerColor: #222222;
 $sidebarColor: #373a47;
 $grey: #AAAAAA;
 
-h1 {
+.Signup {
+    padding: 60px 0;
+    background-color: $headerColor;
     color: $grey;
+}
+
+.Signup form {
+    margin: 0 auto;
+    max-width: 320px;
 }
