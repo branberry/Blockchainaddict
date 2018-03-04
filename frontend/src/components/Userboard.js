@@ -92,7 +92,7 @@ export class Userboard extends Component {
     for(let i = 0; i < 7; i++) {
       let day = d.getDay();
 
-      if(day - i < 0){
+      if(day - i < 0) {
         day = day + 7 - i;
       } else {
         day = day - i
@@ -241,17 +241,7 @@ export class Userboard extends Component {
                 </ul>
              </div>
              
-             <div className="col-lg-4"> 
-              <Line 
-                data={this.state.LineChartData}
-                width={150}
-                height={500}
-                redraw={true}
-                options={{
-                  maintainAspectRatio:false
-                }}
-                />
-             </div>
+
         </div>
       </div>
     );
