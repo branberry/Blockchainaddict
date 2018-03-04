@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
-import { Link, Route, Switch } from 'react-router-dom';
+
 
 import '../styles/UserBoard.css';
 
