@@ -33,11 +33,60 @@ export class History extends Component {
                 ]
               },
         };
+        this.generateDates.bind(this);
+    }
+    generateDates() {
+        let d = new Date();
+        let LineChartData = Object.assign({}, this.state.LineChartData);
+    
+        for(let i = 0; i < 7; i++) {
+          let day = d.getDay();
+    
+          if(day - i < 0) {
+            day = day + 7 - i;
+          } else {
+            day = day - i
+          }
+          
+          switch(day) {
+            case 0:
+              LineChartData.labels[i] = 'Sunday'
+              break;
+            case 1:
+              LineChartData.labels[i] = 'Monday'
+              break;
+            case 2:
+              LineChartData.labels[i] = 'Tuesday'
+              break;
+            case 3:
+              LineChartData.labels[i] = 'Wednesday'
+              break;
+            case 4:
+              LineChartData.labels[i] = 'Thursday'
+              break
+            case 5:
+              LineChartData.labels[i] = 'Friday'
+              break;
+            case 6:
+              LineChartData.labels[i] = 'Saturday'
+              break;
+            default:
+              break;
+          }
+        }
+       LineChartData.labels.reverse();
+       this.state.LineChartData.labels = LineChartData.labels;
+      }
+    
+
+    componentWillMount() {
+        fetch() 
     }
 
     render() {
         return(
             <div className="col-lg-4"> 
+            {this.generateDates()}
             <Line 
               data={this.state.LineChartData}
               width={150}
