@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
-
+import { History } from './History';
 
 import '../styles/UserBoard.css';
 
@@ -17,8 +17,7 @@ const styles = {
 export class Userboard extends Component {
    constructor(props) {
     super(props);
-    this.state = {
-      
+    this.state = {  
       coinVals : {
 
       },
@@ -166,7 +165,6 @@ export class Userboard extends Component {
     return (
 
       <div className="container">
-      {this.generateDates()}
         <h1 className="dashboard"> Your Dashboard </h1>
          <div className="row">
          <h2 className="dashboard"> Your Net Worth: ${Number(Math.round(this.state.networth +'e2') +'e-2')} </h2>
@@ -199,6 +197,7 @@ export class Userboard extends Component {
                 </ul>
              </div>
              
+             <History/>
 
         </div>
       </div>

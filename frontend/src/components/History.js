@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 export class History extends Component {
     constructor(props) {
+        super(props);
         this.state = {
             LineChartData : {
                 labels : [
@@ -80,11 +81,12 @@ export class History extends Component {
     
 
     componentWillMount() {
-        fetch() 
+       // fetch() 
     }
 
     render() {
         return(
+          
             <div className="col-lg-4"> 
             {this.generateDates()}
             <Line 
