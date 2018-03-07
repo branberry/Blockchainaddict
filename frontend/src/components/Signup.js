@@ -91,6 +91,7 @@ export default class Signup extends Component {
                           type="password"
                           />
                     </FormGroup>
+                    {/* The submit for the signup button */}
                     <Button
                      block
                      bsSize="large"
