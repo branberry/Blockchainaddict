@@ -3,6 +3,7 @@ import { Userboard } from './components/Userboard.js';
 import Login from './components/Login';
 import { BrowserRouter,Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import Predict from './components/Predict';
 import Nav from './components/Nav';
 import Signup from './components/Signup';
 import './styles/App.css';
@@ -40,6 +41,7 @@ class App extends Component {
             <Route path='/login' exact component={Login}/>
             <Route path='/userboard' exact component={Userboard}/>
             <Route path='/signup' exact component={Signup}/>
+            <Route path='/predict' exact component={Predict}/>
         </div>
       </BrowserRouter>
     );

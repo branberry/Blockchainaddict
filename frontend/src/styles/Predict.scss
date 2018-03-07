@@ -1,0 +1,14 @@
+$headerColor: #222222;
+$sidebarColor: #373a47;
+$grey: #AAAAAA;
+
+.Predict {
+    padding: 60px 0;
+    background-color: $headerColor;
+    color: $grey;
+}
+
+.Predict form {
+    margin: 0 auto;
+    max-width: 320px;
+}
