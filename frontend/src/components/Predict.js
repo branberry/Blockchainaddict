@@ -11,7 +11,7 @@ export default class Predict extends Component {
 
     render() {
         return(
-            <div>
+            <div className="Predict">
                 <h1>Cryptocurrency Prediction</h1>
             </div>
         );
